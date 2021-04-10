@@ -3,9 +3,7 @@ package vlad.JavaExamples.examples;
 
 public class Meeting3 {
     public static void main(String... args){
-        System.out.println(fullName("Vlad", "Kamenev"));
-        System.out.println(getNumbers("Vlad", "Kamenev"));
-        System.out.println(getNumbers("Vlad Kamenev"));
+        ifelseConditions(1);
     }
 
     /**
@@ -16,6 +14,43 @@ public class Meeting3 {
      * 5. create a method which will return total amount of the characters in your name, excluding space between names
      */
 
+    //Loops
+    private static void printMyNameInLoop(String name){
+        for (int i=0; i<4; i=i+1)
+        {
+            System.out.println(name + " "+ i);
+        }
+    }
+
+    private static void whileLoopExample(){
+        int i = 0;
+        while (i < 4){
+            System.out.println(i);
+            i++;
+        }
+    }
+
+    private static void dowhileLoopExample(){
+        int i = 0;
+        do{
+            System.out.println(i);
+            i++;
+        }while (i<4);
+    }
+
+
+    private static void ifelseConditions(int value){
+        if(value<0){
+            System.out.println(value+" is negative");
+        }
+        else if (value>0){
+           System.out.println(value+" is positive");
+       }
+       else{
+           System.out.println(value+" is zero");
+       }
+        System.out.println("just text");
+    }
 
     private static String fullName(String value1, String value2){
         return value1 + " " + value2;
