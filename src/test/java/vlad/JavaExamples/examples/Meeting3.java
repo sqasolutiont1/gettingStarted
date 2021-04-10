@@ -3,10 +3,31 @@ package vlad.JavaExamples.examples;
 
 public class Meeting3 {
     public static void main(String... args){
-        intExamples();
+        System.out.println(fullName("Vlad", "Kamenev"));
+        System.out.println(getNumbers("Vlad", "Kamenev"));
+        System.out.println(getNumbers("Vlad Kamenev"));
     }
 
+    /**
+     * 1. create a method which will return your FirstName
+     * 2. create a method which will return your LastName
+     * 3. create a method which will concat your FirstName and LastName, and it will insert space between names
+     * 4. create a method which will merge any passed names.
+     * 5. create a method which will return total amount of the characters in your name, excluding space between names
+     */
 
+
+    private static String fullName(String value1, String value2){
+        return value1 + " " + value2;
+    }
+
+    private static int getNumbers(String value1, String value2){
+        return value1.length()+value2.length();
+    }
+
+    private static int getNumbers(String value){
+        return value.replaceAll("\\s+","").length();
+    }
 
     private static void stringExamples(){
         String firstName = "Vlad";
