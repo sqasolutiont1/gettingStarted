@@ -1,6 +1,10 @@
 package workingwithclasses;
 
 public class PrintMeAnything {
+    public PrintMeAnything(){
+        System.out.println("this is constructor");
+    }
+
     public static int numbers = 2134234;
     public void printMeString(String value){
         System.out.println(value);
@@ -12,6 +16,5 @@ public class PrintMeAnything {
 
     public static void printmeregardless(){
         System.out.println("yup");
-
     }
 }
