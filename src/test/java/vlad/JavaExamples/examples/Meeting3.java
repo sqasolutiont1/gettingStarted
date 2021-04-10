@@ -1,18 +1,30 @@
 package vlad.JavaExamples.examples;
 
 
+import java.sql.Array;
+import java.util.ArrayList;
+
 public class Meeting3 {
     public static void main(String... args){
-        ifelseConditions(1);
     }
 
-    /**
-     * 1. create a method which will return your FirstName
-     * 2. create a method which will return your LastName
-     * 3. create a method which will concat your FirstName and LastName, and it will insert space between names
-     * 4. create a method which will merge any passed names.
-     * 5. create a method which will return total amount of the characters in your name, excluding space between names
-     */
+    //Lists
+
+
+    //Arrays
+    private static void printArrays(){
+        String[] strings = {"one","two", "three", "four"};
+        Integer[] integers = {12,34,545,6776,89,65443,32,542};
+        String[][] strings1 = {{"one","two", "three", "four"},{"five","six", "seven", "eight"}};
+        System.out.println(strings.length);
+        String strings12 = strings[0];
+        int arrayLength = integers.length;
+
+        for (int i = 0; i<arrayLength; i++){
+            System.out.println(integers[i]);
+        }
+    }
+
 
     //Loops
     private static void printMyNameInLoop(String name){
@@ -38,7 +50,7 @@ public class Meeting3 {
         }while (i<4);
     }
 
-
+//Conditions
     private static void ifelseConditions(int value){
         if(value<0){
             System.out.println(value+" is negative");
