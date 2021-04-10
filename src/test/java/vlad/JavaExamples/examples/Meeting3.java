@@ -1,10 +1,49 @@
 package vlad.JavaExamples.examples;
 
-import workingwithclasses.PrintMeAnything;
 
 public class Meeting3 {
     public static void main(String... args){
-        PrintMeAnything printMeAnything = new PrintMeAnything();
+        intExamples();
+    }
+
+
+
+    private static void stringExamples(){
+        String firstName = "Vlad";
+        String lastName = "Kamenev";
+        String fullName = firstName+" "+ lastName;
+        System.out.println(fullName);
+        String emptyst = "";
+        int numberofsymbolsinFirstName = firstName.length();
+        System.out.println(numberofsymbolsinFirstName);
+        System.out.println(firstName.charAt(3));
+        System.out.println(firstName.compareTo(lastName));
+        System.out.println(firstName.isEmpty());
+        System.out.println(emptyst.isEmpty());
+        System.out.println(firstName.replace('V','F'));
+        System.out.println(firstName.equals("Vlad"));
+    }
+
+    private static void intExamples(){
+        int age = 40;
+        int phoneNumber = 234234234;
+        int countryCode = 1;
+        int stateCode = 650;
+
+        ////
+        int num1 = 45;
+        int numb2 = 6547;
+        int sum = num1+numb2;
+        System.out.println(sum);
+        int mult = num1*numb2;
+        System.out.println(mult);
+
+        String fullPhoneNumber = "";
+        fullPhoneNumber = String.valueOf(countryCode) +"("+ String.valueOf(stateCode) +")"+ String.valueOf(phoneNumber);
+        System.out.println(fullPhoneNumber);
+        String integers = "12412432";
+        int numbers = Integer.parseInt(integers);
+        System.out.println(numbers);
     }
 
     public static void printme(){
