@@ -15,7 +15,7 @@ public class Tests {
     public void openTheBrowser(){
         WebDriverManager.chromedriver().setup();
         webDriver = new ChromeDriver();
-        webDriver.navigate().to("https://coreui.io/angular/demo/free/2.11.1/#/base/forms");
+        webDriver.navigate().to("http://authenticgoods.co/wrapbootstrap/themes/neuboard-v1.4.3/Angular_full_version/index.html#/forms/multi-upload");
     }
 
     @Test
