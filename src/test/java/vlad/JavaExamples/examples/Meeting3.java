@@ -1,4 +1,4 @@
-package vlad;
+package vlad.JavaExamples.examples;
 
 import workingwithclasses.PrintMeAnything;
 
