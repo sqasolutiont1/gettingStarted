@@ -3,13 +3,38 @@ package vlad.JavaExamples.examples;
 
 import java.sql.Array;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Meeting3 {
     public static void main(String... args){
+        printLists();
     }
 
     //Lists
+    private static void printLists(){
+        List<String> stringList = new ArrayList<>();
+        stringList.add("one");
+        stringList.add("two");
+        stringList.add("three");
+        System.out.println(stringList.get(0));
+        System.out.println(stringList.size());
+        for(int i = 0; i<stringList.size(); i++){
+            System.out.println(stringList.get(i));
+        }
+        stringList.remove(1);
+        for(int i = 0; i<stringList.size(); i++){
+            System.out.println(stringList.get(i));
+        }
 
+        stringList.set(0,"zero");
+        for(int i = 0; i<stringList.size(); i++){
+            System.out.println(stringList.get(i));
+        }
+
+        stringList.clear();
+
+        System.out.println(stringList.size());
+    }
 
     //Arrays
     private static void printArrays(){
