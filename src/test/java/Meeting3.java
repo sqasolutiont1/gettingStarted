@@ -1,6 +1,12 @@
+import workingwithclasses.PrintMeAnything;
+
 public class Meeting3 {
     public static void main(String... args){
-        printme();
+        PrintMeAnything.printmeregardless();
+        System.out.println(PrintMeAnything.numbers);
+        PrintMeAnything printMeAnything = new PrintMeAnything();
+        printMeAnything.printMeString("This is a string");
+
     }
 
     public static void printme(){
