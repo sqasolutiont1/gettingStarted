@@ -1,7 +1,12 @@
-package workingwithclasses;
+package vlad.JavaExamples.workingwithclasses;
 
 public class PrintMeAnything {
-    public String printMeString(String value){
+    public PrintMeAnything(){
+        System.out.println("this is constructor");
+    }
+
+    public static int numbers = 2134234;
+    public void printMeString(String value){
         System.out.println(value);
     }
 
