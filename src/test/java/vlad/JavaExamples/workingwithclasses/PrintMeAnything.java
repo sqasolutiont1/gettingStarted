@@ -1,4 +1,4 @@
-package workingwithclasses;
+package vlad.JavaExamples.workingwithclasses;
 
 public class PrintMeAnything {
     public PrintMeAnything(){
