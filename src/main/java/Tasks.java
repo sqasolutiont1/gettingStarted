@@ -1,8 +1,9 @@
 import java.util.List;
 
 public class Tasks {
-    public static void main(String args[]){
-
+    public static void main(String[] args){
+        System.out.println(fact(10));
+        System.out.println(factorial(10));
     }
 
     /**
@@ -39,12 +40,21 @@ public class Tasks {
      * @param n
      * @return
      */
-    public Integer factorial(Integer n) {
+    public static Integer factorial(Integer n) {
         int factorial = n;
         for (int j = n - 1; j > 0; j--) {
             factorial = factorial * j;
         }
         return factorial;
+    }
+
+
+    private static int fact(int n){
+
+        if (n == 1) // base condition
+            return 1;
+        else
+            return n*fact(n-1);
     }
 
     /**
