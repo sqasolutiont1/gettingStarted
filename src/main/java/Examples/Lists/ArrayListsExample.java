@@ -5,9 +5,10 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class ArrayListsExample {
-    public static void main(String[] args)
-    {}
-    private void arrayListExample(){
+    public static void main(String[] args) {
+    }
+
+    private void arrayListExample() {
         // Size of ArrayList
         int n = 5;
 
@@ -34,7 +35,7 @@ public class ArrayListsExample {
             System.out.print(arrli.get(i) + " ");
     }
 
-    private void linkedLIsts(){
+    private void linkedLIsts() {
         // Size of the LinkedList
         int n = 5;
 

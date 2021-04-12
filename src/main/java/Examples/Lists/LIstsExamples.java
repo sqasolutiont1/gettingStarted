@@ -7,7 +7,7 @@ public class LIstsExamples {
     public static void main(String[] args) {
     }
 
-    private void creatreList(){
+    private void creatreList() {
 
         // Creating a list
         List<Integer> l1
@@ -44,7 +44,7 @@ public class LIstsExamples {
         System.out.println(l1);
     }
 
-    private void addToLIst(){
+    private void addToLIst() {
         List<String> al = new ArrayList<>();
 
         al.add("Geeks");
@@ -54,7 +54,7 @@ public class LIstsExamples {
         System.out.println(al);
     }
 
-    private void changeTheLIst(){
+    private void changeTheLIst() {
         List<String> al = new ArrayList<>();
 
         al.add("Geeks");
@@ -68,7 +68,7 @@ public class LIstsExamples {
         System.out.println("Updated ArrayList " + al);
     }
 
-    private void removeFromLIst(){
+    private void removeFromLIst() {
         List<String> al = new ArrayList<>();
 
         al.add("Geeks");
@@ -89,7 +89,7 @@ public class LIstsExamples {
                 "After the Object Removal " + al);
     }
 
-    private void ineratingTheLIst(){
+    private void ineratingTheLIst() {
         List<String> al
                 = new ArrayList<>();
 
