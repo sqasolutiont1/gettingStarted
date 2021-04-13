@@ -2,8 +2,7 @@ import java.util.List;
 
 public class Tasks {
     public static void main(String[] args) {
-        System.out.println(fact(10));
-        System.out.println(factorial(10));
+        System.out.println(reverse("qwerty"));
     }
 
     /**
@@ -15,17 +14,17 @@ public class Tasks {
      * @param n
      * @return
      */
-    public static Integer factorial(Integer n) {
+
+    private static Integer factorial(Integer n) {
         int factorial = n;
-        for (int j = n - 1; j > 0; j--) {
+        for (int j = n - 1; j > 0; j=j-1) {
             factorial = factorial * j;
         }
         return factorial;
     }
 
     private static int fact(int n) {
-
-        if (n == 1) // base condition
+        if (n == 1) // exit from recursion condition
             return 1;
         else
             return n * fact(n - 1);
@@ -49,7 +48,7 @@ public class Tasks {
      * @param n
      * @return
      */
-    public Integer sum(Integer n) {
+    public static Integer sum(Integer n) {
         Integer sum = 0;
         for (int i = 1; i <= n; i++) {
             if (i % 3 == 0 || i % 5 == 0) {
@@ -66,13 +65,13 @@ public class Tasks {
      * If the number does not exist return -1.
      *
      * @param n
-     * @param list
+     * @param array
      * @return
      */
-    public int search(Integer n, Integer[] list) {
+    public int search(Integer n, Integer[] array) {
         int index = -1;
-        for (int i = 0; i < list.length; i++) {
-            if (list[i].equals(n)) {
+        for (int i = 0; i < array.length; i++) {
+            if (array[i].equals(n)) {
                 index = i;
                 break;
             }
@@ -88,7 +87,7 @@ public class Tasks {
      * @param s
      * @return
      */
-    public String reverse(String s) {
+    public static String reverse(String s) {
         String result = "";
         for (int i = 0; i < s.length(); i++) {
             result += s.charAt(s.length() - i - 1);
@@ -106,7 +105,8 @@ public class Tasks {
      */
     public Integer maximum(Integer[] list) {
         int maximum = list[0];
-        for (int i : list) {
+        for (int j = 0; j < list.length; j++) {
+            int i = list[j];
             if (i > maximum) {
                 maximum = i;
             }
