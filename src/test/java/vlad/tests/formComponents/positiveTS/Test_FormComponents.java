@@ -1,4 +1,4 @@
-package vlad.tests.formComponents;
+package vlad.tests.formComponents.positiveTS;
 
 import org.testng.annotations.Test;
 import vlad.PageObjects.Forms.FormComponentsPO;

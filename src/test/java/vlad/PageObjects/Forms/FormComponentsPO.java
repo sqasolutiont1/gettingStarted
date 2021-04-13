@@ -20,14 +20,32 @@ public class FormComponentsPO {
         return webDriver = new ChromeDriver();
     }
 
+
     public void closeWebDriver(){
+        /**
+         * Here we are checking if web driver instance in the memory
+         *
+         */
         if (webDriver != null){
+            /**
+             * if it is in the memory:
+             * We are closing the browser window.
+             */
             webDriver.close();
+            /**
+             * Then we are destroying instance in the memory.
+             */
             webDriver = null;
         }
     }
     public void navigateToFormComponentsPage(){
+        /**
+         * this is where our navigation is happening
+         */
         webDriver.navigate().to(URL);
+        /**
+         * This is where we are waiting for page to be loaded.
+         */
         waitForPageLoaded();
     }
 
@@ -68,10 +86,22 @@ public class FormComponentsPO {
 
 
     public void fillOutEmailAddress(String text){
-        //wait - for element to be in DOM
+        /**
+         * Creating locator object. Why? we have to supply webDriver with object which it can use to find the element.
+         */
         By locator = By.cssSelector("[id='exampleInputEmail1']");
+        /**
+         * Creating WebElement Object. Why? This is the only one way how we can manipulate the object on the web Page.
+         * We are manipulating web applications through WebElements.
+         * We need WebElement to emulate end-user actions.
+         */
         WebElement webElement = webDriver.findElement(locator);
-        //wait for element to be visible/clickable/enabled
+        /**
+         * We Are acting! We are using Selenium WebElement to send keys (send text) to the Element on the page.
+         * Why? Selenium WebElement built with the locator to the Element on the page.
+         * So: Selenium WebDriver knows where to find element. And Selenium WebDriver gives us the list of teh methods
+         * (Actions) that could be done with elements on the page.
+         */
         getClickableElement(webElement).sendKeys(text);
     }
 
