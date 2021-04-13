@@ -1,8 +1,17 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class Tasks {
     public static void main(String[] args) {
-        System.out.println(maximum(new Integer[]{12, 32, 1, 4, 45, 65, 17}));
+        List<Integer> list=new ArrayList<Integer>(){{
+            add(1);
+            add(2);
+            add(3);
+            add(4);
+            add(5);
+            add(6);
+        }};
+        System.out.println(getElement(list,2));
     }
 
     /**
@@ -124,7 +133,12 @@ public class Tasks {
      * @param n
      * @return
      */
-    public Integer getElement(List<Integer> list, Integer n) {
+    //[1.2.3.45.67.68.77], 2 4
+    //[0,1,2,3,4,5,6,7,8,9]
+    //odd indexes[1,3,5,7,9]
+    public static Integer getElement(List<Integer> list, Integer n) {
+        // odd element - is something that you can't divide by 2
+        // 2*(4-1) = 6
         int elementIndex = 2 * (n - 1);
         if (elementIndex > list.size() - 1) return -1;
         return list.get(elementIndex);
