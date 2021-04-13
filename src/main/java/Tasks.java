@@ -2,7 +2,7 @@ import java.util.List;
 
 public class Tasks {
     public static void main(String[] args) {
-        System.out.println(reverse("qwerty"));
+        System.out.println(maximum(new Integer[]{12, 32, 1, 4, 45, 65, 17}));
     }
 
     /**
@@ -88,25 +88,26 @@ public class Tasks {
      * @return
      */
     public static String reverse(String s) {
-        String result = "";
+        //Google
+        String reversedString = "";
         for (int i = 0; i < s.length(); i++) {
-            result += s.charAt(s.length() - i - 1);
+            reversedString += s.charAt(s.length() - 1 - i);
         }
-        return result;
+        return reversedString;
     }
 
     /**
      * Find Maximum
-     * Write a method that returns the largest integer in the list.
-     * You can assume that the list has at least one element.
+     * Write a method that returns the largest integer in the array.
+     * You can assume that the array has at least one element.
      *
-     * @param list
+     * @param array
      * @return
      */
-    public Integer maximum(Integer[] list) {
-        int maximum = list[0];
-        for (int j = 0; j < list.length; j++) {
-            int i = list[j];
+    public static Integer maximum(Integer[] array) {
+        int maximum = array[0];
+        for (int j = 0; j < array.length; j++) {
+            int i = array[j];
             if (i > maximum) {
                 maximum = i;
             }
@@ -116,7 +117,8 @@ public class Tasks {
 
     /**
      * Nth Odd Element
-     * Write a method that returns the nth odd element of a list. If the index of the element exceeds the list size, then return -1.
+     * Write a method that returns the nth odd element of a list.
+     * If the index of the element exceeds the list size, then return -1.
      *
      * @param list
      * @param n
@@ -124,6 +126,7 @@ public class Tasks {
      */
     public Integer getElement(List<Integer> list, Integer n) {
         int elementIndex = 2 * (n - 1);
-        return elementIndex > list.size() - 1 ? -1 : list.get(elementIndex);
+        if (elementIndex > list.size() - 1) return -1;
+        return list.get(elementIndex);
     }
 }
