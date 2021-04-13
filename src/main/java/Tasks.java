@@ -1,9 +1,17 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class Tasks {
     public static void main(String[] args) {
-        System.out.println(fact(10));
-        System.out.println(factorial(10));
+        List<Integer> list=new ArrayList<Integer>(){{
+            add(1);
+            add(2);
+            add(3);
+            add(4);
+            add(5);
+            add(6);
+        }};
+        System.out.println(getElement(list,2));
     }
 
     /**
@@ -15,17 +23,17 @@ public class Tasks {
      * @param n
      * @return
      */
-    public static Integer factorial(Integer n) {
+
+    private static Integer factorial(Integer n) {
         int factorial = n;
-        for (int j = n - 1; j > 0; j--) {
+        for (int j = n - 1; j > 0; j=j-1) {
             factorial = factorial * j;
         }
         return factorial;
     }
 
     private static int fact(int n) {
-
-        if (n == 1) // base condition
+        if (n == 1) // exit from recursion condition
             return 1;
         else
             return n * fact(n - 1);
@@ -49,7 +57,7 @@ public class Tasks {
      * @param n
      * @return
      */
-    public Integer sum(Integer n) {
+    public static Integer sum(Integer n) {
         Integer sum = 0;
         for (int i = 1; i <= n; i++) {
             if (i % 3 == 0 || i % 5 == 0) {
@@ -66,13 +74,13 @@ public class Tasks {
      * If the number does not exist return -1.
      *
      * @param n
-     * @param list
+     * @param array
      * @return
      */
-    public int search(Integer n, Integer[] list) {
+    public int search(Integer n, Integer[] array) {
         int index = -1;
-        for (int i = 0; i < list.length; i++) {
-            if (list[i].equals(n)) {
+        for (int i = 0; i < array.length; i++) {
+            if (array[i].equals(n)) {
                 index = i;
                 break;
             }
@@ -88,25 +96,27 @@ public class Tasks {
      * @param s
      * @return
      */
-    public String reverse(String s) {
-        String result = "";
+    public static String reverse(String s) {
+        //Google
+        String reversedString = "";
         for (int i = 0; i < s.length(); i++) {
-            result += s.charAt(s.length() - i - 1);
+            reversedString += s.charAt(s.length() - 1 - i);
         }
-        return result;
+        return reversedString;
     }
 
     /**
      * Find Maximum
-     * Write a method that returns the largest integer in the list.
-     * You can assume that the list has at least one element.
+     * Write a method that returns the largest integer in the array.
+     * You can assume that the array has at least one element.
      *
-     * @param list
+     * @param array
      * @return
      */
-    public Integer maximum(Integer[] list) {
-        int maximum = list[0];
-        for (int i : list) {
+    public static Integer maximum(Integer[] array) {
+        int maximum = array[0];
+        for (int j = 0; j < array.length; j++) {
+            int i = array[j];
             if (i > maximum) {
                 maximum = i;
             }
@@ -116,14 +126,21 @@ public class Tasks {
 
     /**
      * Nth Odd Element
-     * Write a method that returns the nth odd element of a list. If the index of the element exceeds the list size, then return -1.
+     * Write a method that returns the nth odd element of a list.
+     * If the index of the element exceeds the list size, then return -1.
      *
      * @param list
      * @param n
      * @return
      */
-    public Integer getElement(List<Integer> list, Integer n) {
+    //[1.2.3.45.67.68.77], 2 4
+    //[0,1,2,3,4,5,6,7,8,9]
+    //odd indexes[1,3,5,7,9]
+    public static Integer getElement(List<Integer> list, Integer n) {
+        // odd element - is something that you can't divide by 2
+        // 2*(4-1) = 6
         int elementIndex = 2 * (n - 1);
-        return elementIndex > list.size() - 1 ? -1 : list.get(elementIndex);
+        if (elementIndex > list.size() - 1) return -1;
+        return list.get(elementIndex);
     }
 }
