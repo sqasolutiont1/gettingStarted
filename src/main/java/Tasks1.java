@@ -16,7 +16,11 @@ public class Tasks1 {
         return fibonacci(n - 1) + fibonacci(n - 2);
     }
 
-
+    /**
+     *
+     * @param arr
+     * @return
+     */
     public Integer find(Integer[] arr) {
         int max = Integer.MIN_VALUE;
         int secondMax = Integer.MIN_VALUE;
@@ -34,6 +38,11 @@ public class Tasks1 {
         return secondMax;
     }
 
+    /**
+     *
+     * @param n
+     * @return
+     */
     public Integer evenFibonacciSum(Integer n) {
         int previousFibonacci = 1;
         int currentFibonacci = 2;
