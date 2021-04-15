@@ -1,4 +1,4 @@
-package vlad.utils;
+package meetings.vlad.utils;
 
 public class ChromeDriverHelper {
     /**

@@ -1,4 +1,4 @@
-package vlad.JavaExamples.workingwithclasses;
+package meetings.workingwithclasses;
 
 public class PrintMeAnything {
     public PrintMeAnything(){

@@ -1,4 +1,4 @@
-package workingwithclasses;
+package meetings.workingwithclasses;
 
 public class PrintMeAnything2 {
     public PrintMeAnything2(){

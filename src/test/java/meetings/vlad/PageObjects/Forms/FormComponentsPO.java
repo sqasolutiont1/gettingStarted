@@ -1,4 +1,4 @@
-package vlad.PageObjects.Forms;
+package meetings.vlad.PageObjects.Forms;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.*;

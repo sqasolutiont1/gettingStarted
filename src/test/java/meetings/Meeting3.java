@@ -1,4 +1,6 @@
-import workingwithclasses.PrintMeAnything;
+package meetings;
+
+import meetings.workingwithclasses.PrintMeAnything;
 
 public class Meeting3 {
     public static void main(String... args){

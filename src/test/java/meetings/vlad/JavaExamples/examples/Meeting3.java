@@ -1,7 +1,6 @@
-package vlad.JavaExamples.examples;
+package meetings.vlad.JavaExamples.examples;
 
 
-import java.sql.Array;
 import java.util.ArrayList;
 import java.util.List;
 

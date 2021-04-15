@@ -1,10 +1,8 @@
-package vlad.pagesObjects;
+package meetings.vlad.pagesObjects;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import jdk.nashorn.internal.runtime.regexp.joni.ast.StringNode;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.Assert;
 
 public class HomePO {
     /**

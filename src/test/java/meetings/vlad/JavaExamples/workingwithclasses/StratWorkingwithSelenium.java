@@ -1,4 +1,4 @@
-package vlad.JavaExamples.workingwithclasses;
+package meetings.vlad.JavaExamples.workingwithclasses;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;

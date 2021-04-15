@@ -1,7 +1,7 @@
-package vlad.tests.formComponents.positiveTS;
+package meetings.vlad.tests.formComponents.positiveTS;
 
 import org.testng.annotations.Test;
-import vlad.PageObjects.Forms.FormComponentsPO;
+import meetings.vlad.PageObjects.Forms.FormComponentsPO;
 
 public class Test_FormComponents {
     /**
