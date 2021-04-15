@@ -48,8 +48,12 @@ public class FormWizardPO extends BasePageObject {
         getClickableElement(locator).sendKeys(firstName);
     }
 
-
+    /**
+     *
+     * @param lastName - accepts lastName from the data source and fill in text field with the value
+     */
     public void fillInLastName(String lastName) {
+
     }
 
     public void pressNextButton() {
