@@ -57,6 +57,7 @@ public class FormWizardPO extends BasePageObject {
     }
 
     public void pressNextButton() {
+        // use click() instead of sendKeys.
     }
 
     public void fillInStreetAddress(String streetAddress) {

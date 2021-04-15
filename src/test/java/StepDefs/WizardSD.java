@@ -8,9 +8,8 @@ import io.cucumber.java.en.Given;
 public class WizardSD {
     FormWizardPO formWizard = new FormWizardPO();
     @And("I fill out {string}")
-    public void iFillOutFirstName(String value) throws InterruptedException {
+    public void iFillOutFirstName(String value) {
         formWizard.fillInFirstName(value);
-        Thread.sleep(5000);
     }
 
     @Given("I navigate to the page")

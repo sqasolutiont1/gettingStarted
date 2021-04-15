@@ -1,4 +1,6 @@
 Feature:
+  # implement steps and stepDefinitions for:
+  # Last name, press Next button, Street Address, City, State, ZIP, Submit button.
   Background:
     Given I navigate to the page
   Scenario Outline: one
