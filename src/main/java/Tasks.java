@@ -3,7 +3,7 @@ import java.util.List;
 
 public class Tasks {
     public static void main(String[] args) {
-        List<Integer> list=new ArrayList<Integer>(){{
+        List<Integer> list = new ArrayList<Integer>() {{
             add(1);
             add(2);
             add(3);
@@ -11,7 +11,7 @@ public class Tasks {
             add(5);
             add(6);
         }};
-        System.out.println(getElement(list,2));
+        System.out.println(getElement(list, 2));
     }
 
     /**
@@ -26,7 +26,7 @@ public class Tasks {
 
     private static Integer factorial(Integer n) {
         int factorial = n;
-        for (int j = n - 1; j > 0; j=j-1) {
+        for (int j = n - 1; j > 0; j = j - 1) {
             factorial = factorial * j;
         }
         return factorial;
@@ -37,17 +37,6 @@ public class Tasks {
             return 1;
         else
             return n * fact(n - 1);
-    }
-
-    /**
-     * Write a method that sums two numbers.
-     *
-     * @param i
-     * @param j
-     * @return
-     */
-    public Integer sum(Integer i, Integer j) {
-        return i + j;
     }
 
     /**
@@ -65,27 +54,6 @@ public class Tasks {
             }
         }
         return sum;
-    }
-
-    /**
-     * Linear Search
-     * Write a method that returns the index of the first occurrence of given integer in a list.
-     * Assume that the index of the first element in the list is zero.
-     * If the number does not exist return -1.
-     *
-     * @param n
-     * @param array
-     * @return
-     */
-    public int search(Integer n, Integer[] array) {
-        int index = -1;
-        for (int i = 0; i < array.length; i++) {
-            if (array[i].equals(n)) {
-                index = i;
-                break;
-            }
-        }
-        return index;
     }
 
     /**
@@ -142,5 +110,37 @@ public class Tasks {
         int elementIndex = 2 * (n - 1);
         if (elementIndex > list.size() - 1) return -1;
         return list.get(elementIndex);
+    }
+
+    /**
+     * Write a method that sums two numbers.
+     *
+     * @param i
+     * @param j
+     * @return
+     */
+    public Integer sum(Integer i, Integer j) {
+        return i + j;
+    }
+
+    /**
+     * Linear Search
+     * Write a method that returns the index of the first occurrence of given integer in a list.
+     * Assume that the index of the first element in the list is zero.
+     * If the number does not exist return -1.
+     *
+     * @param n
+     * @param array
+     * @return
+     */
+    public int search(Integer n, Integer[] array) {
+        int index = -1;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i].equals(n)) {
+                index = i;
+                break;
+            }
+        }
+        return index;
     }
 }

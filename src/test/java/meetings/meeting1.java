@@ -6,8 +6,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 
-import java.util.List;
-
 public class meeting1 {
     @Test
     public void firstTest() throws InterruptedException {

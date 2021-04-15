@@ -12,21 +12,23 @@ import java.util.function.Function;
 public class FormComponentsPO {
     String URL = "http://authenticgoods.co/wrapbootstrap/themes/neuboard-v1.4.3/Angular_full_version/index.html#/forms/components";
     WebDriver webDriver;
-    public FormComponentsPO(){
+
+    public FormComponentsPO() {
         webDriver = getDriver();
     }
-    public WebDriver getDriver(){
+
+    public WebDriver getDriver() {
         WebDriverManager.chromedriver().setup();
         return webDriver = new ChromeDriver();
     }
 
 
-    public void closeWebDriver(){
+    public void closeWebDriver() {
         /**
          * Here we are checking if web driver instance in the memory
          *
          */
-        if (webDriver != null){
+        if (webDriver != null) {
             /**
              * if it is in the memory:
              * We are closing the browser window.
@@ -38,7 +40,8 @@ public class FormComponentsPO {
             webDriver = null;
         }
     }
-    public void navigateToFormComponentsPage(){
+
+    public void navigateToFormComponentsPage() {
         /**
          * this is where our navigation is happening
          */
@@ -49,14 +52,13 @@ public class FormComponentsPO {
         waitForPageLoaded();
     }
 
-    public WebElement waitFluently(By locator){
+    public WebElement waitFluently(By locator) {
         Wait<WebDriver> wait =
                 new FluentWait<WebDriver>(webDriver).withTimeout(60, TimeUnit.SECONDS)
                         .pollingEvery(1, TimeUnit.SECONDS)
                         .ignoring(NoSuchElementException.class);
 
-        return wait.until(new Function<WebDriver, WebElement>()
-        {
+        return wait.until(new Function<WebDriver, WebElement>() {
             public WebElement apply(WebDriver driver) {
                 return driver.findElement(locator);
             }
@@ -79,13 +81,13 @@ public class FormComponentsPO {
         }
     }
 
-    public WebElement getClickableElement(WebElement webElement){
+    public WebElement getClickableElement(WebElement webElement) {
         WebDriverWait wait = new WebDriverWait(webDriver, 10);
         return wait.until(ExpectedConditions.elementToBeClickable(webElement));
     }
 
 
-    public void fillOutEmailAddress(String text){
+    public void fillOutEmailAddress(String text) {
         /**
          * Creating locator object. Why? we have to supply webDriver with object which it can use to find the element.
          */
@@ -105,8 +107,13 @@ public class FormComponentsPO {
         getClickableElement(webElement).sendKeys(text);
     }
 
-    public void fillOutPassword(){}
-    public void attachFile(){}
-    public void pressSubmit(){}
+    public void fillOutPassword() {
+    }
+
+    public void attachFile() {
+    }
+
+    public void pressSubmit() {
+    }
 
 }

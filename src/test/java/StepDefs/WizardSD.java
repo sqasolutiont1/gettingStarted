@@ -1,12 +1,10 @@
 package StepDefs;
 
-import PageObjects.forms.wizard.FormWizardPO;
-import io.cucumber.java.After;
+import StepDefs.baseStepDef.BaseStepDef;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 
-public class WizardSD {
-    FormWizardPO formWizard = new FormWizardPO();
+public class WizardSD extends BaseStepDef {
     @And("I fill out {string}")
     public void iFillOutFirstName(String value) {
         formWizard.fillInFirstName(value);
@@ -16,8 +14,5 @@ public class WizardSD {
     public void iNavigateToThePage() {
         formWizard.navigateToWizardPage();
     }
-    @After
-    public void closeDriver(){
-        formWizard.closeDriver();
-    }
+
 }

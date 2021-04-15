@@ -49,7 +49,6 @@ public class FormWizardPO extends BasePageObject {
     }
 
     /**
-     *
      * @param lastName - accepts lastName from the data source and fill in text field with the value
      */
     public void fillInLastName(String lastName) {

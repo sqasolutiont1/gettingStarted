@@ -17,7 +17,6 @@ public class Tasks1 {
     }
 
     /**
-     *
      * @param arr
      * @return
      */
@@ -39,7 +38,6 @@ public class Tasks1 {
     }
 
     /**
-     *
      * @param n
      * @return
      */

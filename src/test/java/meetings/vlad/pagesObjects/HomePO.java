@@ -9,7 +9,8 @@ public class HomePO {
      * I want to have one method here, which will return Title of the Page
      */
     WebDriver webDriver;
-    public HomePO(){
+
+    public HomePO() {
         WebDriverManager.chromedriver().setup();
         webDriver = new ChromeDriver();
     }
@@ -19,11 +20,11 @@ public class HomePO {
         return webDriver.getTitle();
     }
 
-    public void OpenHomePage(){
+    public void OpenHomePage() {
         webDriver.navigate().to("http://authenticgoods.co/wrapbootstrap/themes/neuboard-v1.4.3/Angular_full_version/index.html#/forms/multi-upload");
     }
 
-    public void closeEverything(){
+    public void closeEverything() {
         webDriver.quit();
         webDriver = null;
     }

@@ -1,7 +1,7 @@
 package meetings.vlad.tests.formComponents.positiveTS;
 
-import org.testng.annotations.Test;
 import meetings.vlad.PageObjects.Forms.FormComponentsPO;
+import org.testng.annotations.Test;
 
 public class Test_FormComponents {
     /**
@@ -15,11 +15,11 @@ public class Test_FormComponents {
      * This is how we are telling to out Test Framework: TestNG.
      * that we want to run this method as the test. and we want to get related report about it.
      */
-    @Test (description = "This is out first test to fill out email.")
+    @Test(description = "This is out first test to fill out email.")
     /**
      * This is out test. This is where we are making all the things that out end user will make with the application,
      */
-    public void test_fillOutEmailAddress(){
+    public void test_fillOutEmailAddress() {
         /**
          * Before we will start sending text to the text field we have to get there somehow.
          * That means we will need to navigate to teh page where our text field is located.
