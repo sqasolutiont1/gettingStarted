@@ -3,7 +3,7 @@
 <suite name="Suite1" verbose="1" >
     <test name="Nopackage" >
         <classes>
-            <class name="meeting1" />
+            <class name="meetings.meeting1" />
         </classes>
     </test>
 </suite>
