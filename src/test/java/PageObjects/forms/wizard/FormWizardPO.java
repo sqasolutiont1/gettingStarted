@@ -1,48 +1,87 @@
 package PageObjects.forms.wizard;
 
-public class FormWizardPO {
-    public String getHeader(){
+import PageObjects.BaseClasses.BasePageObject;
+import org.openqa.selenium.By;
+
+public class FormWizardPO extends BasePageObject {
+
+    public void navigateToWizardPage() {
+        webDriver.navigate().to(baseURL + "/forms/wizard/step_one");
+        waitForPageLoaded();
+    }
+
+
+    public String getHeader() {
         return "header";
     }
 
-    public String getPanelTitle(){
+    public String getPanelTitle() {
         return "PanelTitle";
     }
 
-    public void pressOnFirstStep(){}
-    public void pressOnSecondStep(){}
-    public void pressOnLastStep(){}
+    public void pressOnFirstStep() {
+    }
 
-    public String getWizardViewHeaderFirstStep(){
+    public void pressOnSecondStep() {
+    }
+
+    public void pressOnLastStep() {
+    }
+
+    public String getWizardViewHeaderFirstStep() {
         return "WizardViewHeader";
     }
-    public String getWizardViewHeaderSecondStep(){
+
+    public String getWizardViewHeaderSecondStep() {
         return "WizardViewHeader";
     }
-    public String getWizardViewHeaderLastStep(){
+
+    public String getWizardViewHeaderLastStep() {
         return "WizardViewHeader";
     }
-    public void fillInFirstName(String firstName){}
-    public void fillInLastName(String lastName){}
-    public void pressNextButton(){}
 
-    public void fillInStreetAddress(String streetAddress){}
-    public void fillInCity(String city){}
-    public void fillInState(String state){}
-    public void fillInZIP(String zip){}
+    /**
+     * @param firstName - accepts firstName from the data source and fill in text field with the value
+     */
+    public void fillInFirstName(String firstName) {
+        By locator = By.cssSelector("[name='firstName']");
+        getClickableElement(locator).sendKeys(firstName);
+    }
 
-    public void pressOnPreviousButton(){}
 
-    public void pressSubmitButton(){}
+    public void fillInLastName(String lastName) {
+    }
 
-    public String getFirstName(){
+    public void pressNextButton() {
+    }
+
+    public void fillInStreetAddress(String streetAddress) {
+    }
+
+    public void fillInCity(String city) {
+    }
+
+    public void fillInState(String state) {
+    }
+
+    public void fillInZIP(String zip) {
+    }
+
+    public void pressOnPreviousButton() {
+    }
+
+    public void pressSubmitButton() {
+    }
+
+    public String getFirstName() {
         return "firstname";
     }
 
-    public String getLastName(){
+    public String getLastName() {
         return "lastname";
     }
 
-    public String getAddress(){return "address";}
-
+    public String getAddress() {
+        return "address";
+    }
 }

@@ -4,7 +4,7 @@ Feature:
   Scenario Outline: one
 #    When I am on the first step
     And I fill out "<First name>"
-    Then I fill out "<Last name>"
+#    Then I fill out "<Last name>"
 #    And I press Next button
 #    Then I am on the second step
 #    And I fill out Street Address
@@ -18,9 +18,9 @@ Feature:
     Examples:
       | First name |Last name|
       |    Vlad    |Ka       |
-      |    Vlad1   |Ka1      |
-      |    Vlad2   |Ka2      |
-      |    Vlad3   |Ka3      |
-      |    Vlad4   |Ka4      |
-      |    Vlad5   |Ka4      |
+#      |    Vlad1   |Ka1      |
+#      |    Vlad2   |Ka2      |
+#      |    Vlad3   |Ka3      |
+#      |    Vlad4   |Ka4      |
+#      |    Vlad5   |Ka4      |
 
