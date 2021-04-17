@@ -5,12 +5,14 @@ import io.cucumber.java.After;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import io.cucumber.java8.Th;
+import org.testng.Assert;
 
 public class WizardSD {
     @And("I fill out First name: {string}")
-    public void iFillOutFirstName(String value) {
-        formWizard.fillInFirstName(value);
+    public void iFillOutFirstName(String firstName) {
+        formWizard.fillInFirstName(firstName);
     }
 
     @Given("I navigate to the page")
@@ -26,8 +28,8 @@ public class WizardSD {
     }
 
     @Then("I fill out Last name: {string}")
-    public void iFillOutLastName(String arg0) {
-        formWizard.fillInLastName(arg0);
+    public void iFillOutLastName(String lastName) {
+        formWizard.fillInLastName(lastName);
     }
 
     @And("I press Next button")
@@ -36,7 +38,22 @@ public class WizardSD {
     }
 
     @And("I wait for:{string} seconds")
-    public void iWaitForSeconds(String arg0) throws InterruptedException {
-        Thread.sleep(Integer.parseInt(arg0)*1000);
+    public void iWaitForSeconds(String seconds) throws InterruptedException {
+        Thread.sleep(Integer.parseInt(seconds)* 1000L);
+    }
+
+    @When("I am on the first step")
+    public void iAmOnTheFirstStep() {
+        Assert.assertEquals(formWizard.getPanelTitle(), "Enter first step data", "Text Wizard Panel doesn't match.");
+    }
+
+    @Then("I am on the second step")
+    public void iAmOnTheSecondStep() {
+        Assert.assertEquals(formWizard.getPanelTitle(), "Enter second step data", "Text Wizard Panel doesn't match.");
+    }
+
+    @And("I fill out Street Address: {string}")
+    public void iFillOutStreetAddress(String streetAddress) {
+        formWizard.fillInStreetAddress(streetAddress);
     }
 }

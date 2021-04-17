@@ -16,7 +16,7 @@ public class FormWizardPO extends BasePageObject {
     }
 
     public String getPanelTitle() {
-        return "PanelTitle";
+        return getClickableElement(By.cssSelector("h2[class='ng-scope']")).getText();
     }
 
     public void pressOnFirstStep() {
@@ -67,15 +67,19 @@ public class FormWizardPO extends BasePageObject {
     }
 
     public void fillInStreetAddress(String streetAddress) {
+        getClickableElement(By.cssSelector("[name='streetAddress']")).sendKeys(streetAddress);
     }
 
     public void fillInCity(String city) {
+        getClickableElement(By.cssSelector("[name='city']")).sendKeys(city);
     }
 
     public void fillInState(String state) {
+        getClickableElement(By.cssSelector("[name='state']")).sendKeys(state);
     }
 
     public void fillInZIP(String zip) {
+        getClickableElement(By.cssSelector("[name='postalCode']")).sendKeys(zip);
     }
 
     public void pressOnPreviousButton() {
