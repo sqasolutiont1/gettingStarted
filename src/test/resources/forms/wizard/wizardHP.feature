@@ -6,7 +6,7 @@ Feature:
   Scenario Outline: one
 #    When I am on the first step
     And I fill out First name: "<First name>"
-#    Then I fill out Last name: "<Last name>"
+    Then I fill out Last name: "<Last name>"
 #    And I press Next button
 #    Then I am on the second step
 #    And I fill out Street Address

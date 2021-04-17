@@ -52,7 +52,14 @@ public class FormWizardPO extends BasePageObject {
      * @param lastName - accepts lastName from the data source and fill in text field with the value
      */
     public void fillInLastName(String lastName) {
-
+        /**
+         * once we call the function: getClickableElement
+         * the instanciation of Locator will be executed : By.cssSelector("[name='lastName']")
+         * and the result of this instanciation will be passed to the function: getClickableElement
+         * and the result of the execution of this function is WebElement. and we getting access to all the functions
+         * which we can apply to the Selenium WebElements. - sendKeys.
+         */
+        getClickableElement(By.cssSelector("[name='lastName']")).sendKeys(lastName);
     }
 
     public void pressNextButton() {
