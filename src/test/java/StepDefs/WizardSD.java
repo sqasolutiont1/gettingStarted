@@ -6,7 +6,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 
 public class WizardSD {
-    @And("I fill out {string}")
+    @And("I fill out First name: {string}")
     public void iFillOutFirstName(String value) {
         formWizard.fillInFirstName(value);
     }
