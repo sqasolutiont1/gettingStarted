@@ -1,7 +1,6 @@
 package StepDefs;
 
 import PageObjects.forms.wizard.FormWizardPO;
-import StepDefs.baseStepDef.BaseStepDef;
 import io.cucumber.java.After;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;

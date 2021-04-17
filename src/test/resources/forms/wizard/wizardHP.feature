@@ -20,9 +20,9 @@ Feature:
     Examples:
       | First name |Last name|
       |    Vlad    |Ka       |
-#      |    Vlad1   |Ka1      |
-#      |    Vlad2   |Ka2      |
-#      |    Vlad3   |Ka3      |
-#      |    Vlad4   |Ka4      |
-#      |    Vlad5   |Ka4      |
+      |    Vlad1   |Ka1      |
+      |    Vlad2   |Ka2      |
+      |    Vlad3   |Ka3      |
+      |    Vlad4   |Ka4      |
+      |    Vlad5   |Ka4      |
 
