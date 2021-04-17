@@ -2,6 +2,9 @@ package PageObjects.forms.wizard;
 
 import PageObjects.BaseClasses.BasePageObject;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class FormWizardPO extends BasePageObject {
 
@@ -113,5 +116,18 @@ public class FormWizardPO extends BasePageObject {
          *
          */
 
+        /**
+         * Proof cof concept:
+         * 1. Find unque locators to each of the Buttons: 1 steps, 2 ....
+         * Why do we need that?
+         * We need that to be able to read "class" attribute. we won;t be able to read attribute without unque locator
+         * for that element where that attribute is located.
+         * 2. So once we located for example second element: "Second Step" we should try to read the value from its
+         * "class" attribute.
+         */
+        new WebDriverWait(webDriver, 5)
+                .until(ExpectedConditions.attributeContains(By.xpath("(//*[@class='steps']/ul/li)[2]"), "class", "current"));
+
+        String attributeValue = getClickableElement(By.xpath("(//*[@class='steps']/ul/li)[2]")).getAttribute("class");
     }
 }
