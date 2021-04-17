@@ -125,9 +125,6 @@ public class FormWizardPO extends BasePageObject {
          * 2. So once we located for example second element: "Second Step" we should try to read the value from its
          * "class" attribute.
          */
-        new WebDriverWait(webDriver, 5)
-                .until(ExpectedConditions.attributeContains(By.xpath("(//*[@class='steps']/ul/li)[2]"), "class", "current"));
-
-        String attributeValue = getClickableElement(By.xpath("(//*[@class='steps']/ul/li)[2]")).getAttribute("class");
+        waitForAttributeValue(By.xpath("(//*[@class='steps']/ul/li)[2]"), "class", "current");
     }
 }

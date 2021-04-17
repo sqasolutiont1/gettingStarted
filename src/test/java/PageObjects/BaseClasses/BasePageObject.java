@@ -25,6 +25,11 @@ public class BasePageObject {
         return wait.until(ExpectedConditions.elementToBeClickable(locator));
     }
 
+    public void waitForAttributeValue(By locator, String attributeName, String value){
+        new WebDriverWait(webDriver, 5)
+                .until(ExpectedConditions.attributeContains(locator, attributeName, value));
+    }
+
     public void waitForPageLoaded() {
         ExpectedCondition<Boolean> expectation = driver -> ((JavascriptExecutor) driver).executeScript("return document.readyState").toString().equals("complete");
         try {
