@@ -7,7 +7,8 @@ Feature:
 #    When I am on the first step
     And I fill out First name: "<First name>"
     Then I fill out Last name: "<Last name>"
-#    And I press Next button
+    And I press Next button
+    And I wait for:"3" seconds
 #    Then I am on the second step
 #    And I fill out Street Address
 #    Then I fill out City

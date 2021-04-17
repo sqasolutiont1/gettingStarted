@@ -63,7 +63,7 @@ public class FormWizardPO extends BasePageObject {
     }
 
     public void pressNextButton() {
-        // use click() instead of sendKeys.
+        getClickableElement(By.xpath("//*[normalize-space()='Next']")).click();
     }
 
     public void fillInStreetAddress(String streetAddress) {
