@@ -48,7 +48,7 @@ public class WizardSD {
 
     @Then("I am on the second step")
     public void iAmOnTheSecondStep() {
-        formWizard.waitForStepsChange();
+        formWizard.waitForStepsChange(2);
         Assert.assertEquals(formWizard.getPanelTitle(), "Enter second step data", "Text Wizard Panel doesn't match.");
     }
 
@@ -70,5 +70,20 @@ public class WizardSD {
     @Then("I fill out ZIP: {string}")
     public void iFillOutZIP(String zip) {
         formWizard.fillInCity(zip);
+    }
+
+    @Then("I am on the final step")
+    public void iAmOnTheFinalStep() {
+        formWizard.waitForStepsChange(3);
+        Assert.assertEquals(formWizard.getPanelTitle(), "Finish last step", "Text Wizard Panel doesn't match.");
+
+    }
+
+    @Then("I see all information")
+    public void iSeeAllInformation() {
+        Assert.assertEquals(formWizard.getFirstName(),"Vlad", "First name is not correct");
+        Assert.assertEquals(formWizard.getLastName(), "Ka", "Last name is not correct");
+        Assert.assertEquals(formWizard.getAddress(), "This is our awesome street address!\nMy CityMy Statemy Zip,",
+                "Address is not correct");
     }
 }

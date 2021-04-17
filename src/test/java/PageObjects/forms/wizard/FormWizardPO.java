@@ -92,39 +92,18 @@ public class FormWizardPO extends BasePageObject {
     }
 
     public String getFirstName() {
-        return "firstname";
+        return getClickableElement(By.xpath("//label[contains(.,'First Name')]//../p")).getText();
     }
 
     public String getLastName() {
-        return "lastname";
+        return getClickableElement(By.xpath("//label[contains(.,'Last Name')]//../p")).getText();
     }
 
     public String getAddress() {
-        return "address";
+        return getClickableElement(By.xpath("//label[contains(.,'Address')]//../p")).getText();
     }
 
-    public void waitForStepsChange() {
-        /**
-         * we are going to check if the element which we are expecting to be in the "current" state has its state.
-         * 1. Save the previous Step, and assume/wait that the next step will be as expected.
-         * 1.1. Class/List/Array/Map: there we are going to store all the possible steps in our app: F,S,L.
-         * 1.2. and knowing that we were on the step 1. we wil expect step 2, and so on.
-         *
-         * 2. We could try to make methods which will handle each step. Why it is ok-ish to do it?
-         * 2.1. We have only one object like this.
-         * 2.2. We have only 3 steps.
-         *
-         */
-
-        /**
-         * Proof cof concept:
-         * 1. Find unque locators to each of the Buttons: 1 steps, 2 ....
-         * Why do we need that?
-         * We need that to be able to read "class" attribute. we won;t be able to read attribute without unque locator
-         * for that element where that attribute is located.
-         * 2. So once we located for example second element: "Second Step" we should try to read the value from its
-         * "class" attribute.
-         */
-        waitForAttributeValue(By.xpath("(//*[@class='steps']/ul/li)[2]"), "class", "current");
+    public void waitForStepsChange(int step) {
+        waitForAttributeValue(By.xpath("(//*[@class='steps']/ul/li)["+ step +"]"), "class", "current");
     }
 }
