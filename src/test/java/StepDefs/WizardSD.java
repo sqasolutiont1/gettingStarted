@@ -6,7 +6,6 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import io.cucumber.java8.Th;
 import org.testng.Assert;
 
 public class WizardSD {
@@ -49,11 +48,27 @@ public class WizardSD {
 
     @Then("I am on the second step")
     public void iAmOnTheSecondStep() {
+        formWizard.waitForStepsChange();
         Assert.assertEquals(formWizard.getPanelTitle(), "Enter second step data", "Text Wizard Panel doesn't match.");
     }
 
     @And("I fill out Street Address: {string}")
     public void iFillOutStreetAddress(String streetAddress) {
         formWizard.fillInStreetAddress(streetAddress);
+    }
+
+    @Then("I fill out City: {string}")
+    public void iFillOutCity(String city) {
+        formWizard.fillInCity(city);
+    }
+
+    @Then("I fill out State: {string}")
+    public void iFillOutState(String state) {
+        formWizard.fillInCity(state);
+    }
+
+    @Then("I fill out ZIP: {string}")
+    public void iFillOutZIP(String zip) {
+        formWizard.fillInCity(zip);
     }
 }

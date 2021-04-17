@@ -99,4 +99,19 @@ public class FormWizardPO extends BasePageObject {
     public String getAddress() {
         return "address";
     }
+
+    public void waitForStepsChange() {
+        /**
+         * we are going to check if the element which we are expecting to be in the "current" state has its state.
+         * 1. Save the previous Step, and assume/wait that the next step will be as expected.
+         * 1.1. Class/List/Array/Map: there we are going to store all the possible steps in our app: F,S,L.
+         * 1.2. and knowing that we were on the step 1. we wil expect step 2, and so on.
+         *
+         * 2. We could try to make methods which will handle each step. Why it is ok-ish to do it?
+         * 2.1. We have only one object like this.
+         * 2.2. We have only 3 steps.
+         *
+         */
+
+    }
 }
