@@ -2,21 +2,21 @@ Feature:
   # implement steps and stepDefinitions for:
   # Last name, press Next button, Street Address, City, State, ZIP, Submit button.
   Background:
-    Given I navigate to the page
+    Given Wizard. I navigate to the page
   Scenario Outline: one
-    When I am on the first step
-    And I fill out First name: "<First name>"
-    Then I fill out Last name: "<Last name>"
-    And I press Next button
-    Then I am on the second step
-    And I fill out Street Address: "<Street address>"
-    Then I fill out City: "<City>"
-    Then I fill out State: "<State>"
-    Then I fill out ZIP: "<ZIP>"
-    And I press Next button
-    Then I am on the final step
-    Then I see all information
-    And I wait for:"3" seconds
+    When Wizard. I am on the first step
+    And Wizard. I fill out First name: "<First name>"
+    Then Wizard. I fill out Last name: "<Last name>"
+    And Wizard. I press Next button
+    Then Wizard. I am on the second step
+    And Wizard. I fill out Street Address: "<Street address>"
+    Then Wizard. I fill out City: "<City>"
+    Then Wizard. I fill out State: "<State>"
+    Then Wizard. I fill out ZIP: "<ZIP>"
+    And Wizard. I press Next button
+    Then Wizard. I am on the final step
+    Then Wizard. I see all information
+    And Wizard. I wait for:"3" seconds
 
 #    And I press Submit Button
 #    Then I see notification

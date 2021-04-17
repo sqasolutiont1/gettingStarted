@@ -13,7 +13,7 @@ import org.testng.Assert;
 
 public class BasePageObject {
     public String baseURL = "http://authenticgoods.co/wrapbootstrap/themes/neuboard-v1.4.3/Angular_full_version/index.html#";
-    public WebDriver webDriver;
+    public static WebDriver webDriver;
 
     public BasePageObject() {
         WebDriverManager.chromedriver().setup();
