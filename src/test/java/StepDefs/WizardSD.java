@@ -79,11 +79,12 @@ public class WizardSD {
 
     }
 
-    @Then("Wizard. I see all information")
-    public void iSeeAllInformation() {
-        Assert.assertEquals(formWizard.getFirstName(),"Vlad", "First name is not correct");
-        Assert.assertEquals(formWizard.getLastName(), "Ka", "Last name is not correct");
-        Assert.assertEquals(formWizard.getAddress(), "This is our awesome street address!\nMy CityMy Statemy Zip,",
+    @Then("Wizard. I see all information:{string},{string},{string},{string},{string},{string}")
+    public void wizardISeeAllInformation(String firstName, String lastName, String streetAddress,
+                                         String state, String city, String zip) {
+        Assert.assertEquals(formWizard.getFirstName(),firstName, "First name is not correct");
+        Assert.assertEquals(formWizard.getLastName(), lastName, "Last name is not correct");
+        Assert.assertEquals(formWizard.getAddress(), streetAddress+"\n"+city+state+zip+",",
                 "Address is not correct");
     }
 }
