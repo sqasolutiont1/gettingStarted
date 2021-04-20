@@ -1,0 +1,7 @@
+1. Setup test automation from scratch
+2. implement test automation based on TestNG only
+3. Implement one test:
+3.1. Navigate to URL
+3.2. Check if the Title as expected
+3.3. Close the Browser and Driver
+

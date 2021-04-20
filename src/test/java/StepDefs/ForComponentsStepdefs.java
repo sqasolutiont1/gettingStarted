@@ -7,7 +7,16 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 
 public class ForComponentsStepdefs {
+    /**
+     * We are using instance of our Page Object ot get access to the methods of our page object
+     */
     FormComponentsPO formComponents = new FormComponentsPO();
+
+    @After
+    public void closeDriver() {
+        formComponents.closeDriver();
+    }
+
     @Given("Form Components. I navigate to the Components page")
     public void formComponentsINavigateToTheComponentsPage() {
         formComponents.navigateToFormComponents();
@@ -23,8 +32,18 @@ public class ForComponentsStepdefs {
         Thread.sleep(Integer.parseInt(seconds)* 1000L);
     }
 
-    @After
-    public void closeDriver() {
-        formComponents.closeDriver();
+    @And("Form Components. I fill in password with data: {string}")
+    public void formComponentsIFillInPasswordWithData(String password) {
+        formComponents.fillInPassword(password);
+    }
+
+    @And("Form Components. I press Submit button.")
+    public void formComponentsIPressSubmitButton() {
+        formComponents.pressSubmit();
+    }
+
+    @And("Form Components. I attach file: {string}")
+    public void formComponentsIAttachFile(String fileName) {
+        formComponents.attachFile(fileName);
     }
 }
