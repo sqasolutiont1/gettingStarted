@@ -5,6 +5,7 @@ import io.cucumber.java.After;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 
 public class ForComponentsStepdefs {
     /**
@@ -45,5 +46,10 @@ public class ForComponentsStepdefs {
     @And("Form Components. I attach file: {string}")
     public void formComponentsIAttachFile(String fileName) {
         formComponents.attachFile(fileName);
+    }
+
+    @When("Form Components. I select the selector")
+    public void formComponentsISelectTheSelector() {
+        formComponents.selectSelectorInputLG();
     }
 }

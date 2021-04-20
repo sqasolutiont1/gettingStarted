@@ -7,3 +7,10 @@ Feature:
     And Form Components. I attach file: "contacts.txt"
     And Form Components. I press Submit button.
     And Form Components. I wait for:"3" seconds
+
+
+    Scenario: Selectors
+      When Form Components. I select the selector
+      And Form Components. I wait for:"3" seconds
+
+      Scenario: Check boxes
