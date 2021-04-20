@@ -5,9 +5,6 @@ public class ExamplesRunner {
         /**
          * it takes the "description" from Examples Class and builds the object from that description.
          */
-        Examples examples = new Examples();
-        examples.visibilityOfVariables(45);
-        examples.tryingToUserVar();
-
+       new OneMoreChildOfExamples();
     }
 }

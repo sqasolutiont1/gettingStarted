@@ -3,13 +3,13 @@ package javaExamples;
 /**
  * Class in Java is a blueprint of the Object.
  */
-public class Examples {
+public class ChildOfExamples extends ParentOfAllExamples{
     int sum = 0;
     /**
      * constructor - is the method, with the same name as the Class
      * it will be automatically executed once you will instantiate the call.
      */
-    Examples(){
+    ChildOfExamples(){
         System.out.println("It's my class");
     }
 
