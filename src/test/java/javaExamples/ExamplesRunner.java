@@ -5,6 +5,6 @@ public class ExamplesRunner {
         /**
          * it takes the "description" from Examples Class and builds the object from that description.
          */
-       new OneMoreChildOfExamples();
+       new OneMoreChildOfExamples().iterateThroughListInterator();
     }
 }
