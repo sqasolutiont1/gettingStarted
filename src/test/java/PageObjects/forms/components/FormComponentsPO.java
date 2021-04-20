@@ -2,6 +2,7 @@ package PageObjects.forms.components;
 
 import PageObjects.BaseClasses.BasePageObject;
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.Select;
 
 import java.io.File;
 
@@ -34,4 +35,12 @@ public class FormComponentsPO extends BasePageObject {
     public String getPopoverMessage(){return "";}
     public void selectValue(){}
     public String readValue(){return "";}
+
+    /**
+     * Example of Selectors
+     */
+    public void selectSelectorInputLG() {
+        Select select = new Select(getClickableElement(By.cssSelector("[class='form-control input-lg']")));
+        select.selectByVisibleText(".input-lg");
+    }
 }

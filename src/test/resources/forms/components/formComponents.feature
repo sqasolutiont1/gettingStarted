@@ -7,4 +7,15 @@ Feature:
     And Form Components. I attach file: "contacts.txt"
     And Form Components. I press Submit button.
     And Form Components. I wait for:"3" seconds
-    #Then Form Components. I fill password with data: "<>"
+
+
+    Scenario: Selectors
+      When Form Components. I select the selector
+      And Form Components. I wait for:"3" seconds
+
+      #Read values from attributes
+      Scenario: Check boxes
+        When Form Components. I check the Check Box
+        And Form Components. Check Box should be checked
+        When Form Components. I check the Check Box
+        And Form Components. Check Box should be unchecked
