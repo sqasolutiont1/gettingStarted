@@ -7,4 +7,3 @@ Feature:
     And Form Components. I attach file: "contacts.txt"
     And Form Components. I press Submit button.
     And Form Components. I wait for:"3" seconds
-    #Then Form Components. I fill password with data: "<>"
