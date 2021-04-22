@@ -1,6 +1,7 @@
 package PageObjects.forms.validation;
 
 import PageObjects.BaseClasses.BasePageObject;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 
@@ -23,7 +24,15 @@ public class ValidationPO extends BasePageObject {
     }
 
     public void pressSubmit(){
-        getClickableElement(By.cssSelector("[type='submit']")).click();
+        getClickableElement(By.xpath("//button[normalize-space()='Submit']")).click();}
+
+    public void readAlert(){
+        Alert alert = webDriver.switchTo().alert();
+        //alert.dismiss();
+        System.out.println(alert.getText());
+        alert.accept();
+
+        //alert.sendKeys("sdfsd");
     }
 
 }
