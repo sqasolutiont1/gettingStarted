@@ -40,6 +40,13 @@ public class BasePageObject {
         }
     }
 
+    public void checkTheCheckBox(By locator, String attributeName) {
+        WebElement checkBox = getClickableElement(locator);
+        if (!checkBox.getAttribute(attributeName).contains("checked")){
+            checkBox.click();
+        }
+    }
+
     public void closeDriver() {
         if (webDriver != null) {
             webDriver.close();

@@ -52,4 +52,9 @@ public class ForComponentsStepdefs {
     public void formComponentsISelectTheSelector() {
         formComponents.selectSelectorInputLG();
     }
+
+    @When("Form Components. I check the Check Box {string} if it is not checked")
+    public void formComponentsICheckTheCheckBoxIfItIsNotChecked(String numberOfTheBox) {
+        formComponents.checkTheCheckBox(numberOfTheBox);
+    }
 }
