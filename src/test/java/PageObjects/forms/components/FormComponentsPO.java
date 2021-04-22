@@ -45,8 +45,8 @@ public class FormComponentsPO extends BasePageObject {
         select.selectByVisibleText(".input-lg");
     }
 
-    public void checkTheCheckBoxNotThePage(String numberOfTheBox) {
-        checkTheCheckBox(false, By.xpath("(//*[@class='radio']//./input/..)["+numberOfTheBox+"]"),"class", "checked");
+    public void setCheckBox(String numberOfTheBox, boolean isShouldBeChecked) {
+        checkTheCheckBox(isShouldBeChecked, By.xpath("(//*[@class='radio']//./input/..)["+numberOfTheBox+"]"),"class", "checked");
     }
 
     public void unCheckTheCheckBox(String numberOfTheBox) {
