@@ -2,9 +2,7 @@ package javaExamples;
 
 import org.apache.commons.lang3.RandomStringUtils;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 public class ParentOfAllExamples {
     ParentOfAllExamples(){
@@ -63,5 +61,8 @@ public class ParentOfAllExamples {
         }
     }
 
+    public void mapsExamples(){
+        Map<Integer, String> map = new HashMap<>();
+    }
 
 }
