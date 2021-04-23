@@ -57,4 +57,9 @@ public class ForComponentsStepdefs {
     public void formComponentsICheckTheCheckBoxIfItIsNotChecked(String numberOfTheBox) {
         formComponents.setCheckBox(numberOfTheBox,false);
     }
+
+/*   @Then("Form Components. I fill in password with data: {string}")
+    public void formComponentsIFillInPasswordWithData(String password) {formComponents.fillInPassword(password);
+
+    }*/
 }
