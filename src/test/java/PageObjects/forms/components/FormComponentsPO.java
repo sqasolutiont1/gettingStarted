@@ -2,6 +2,7 @@ package PageObjects.forms.components;
 
 import PageObjects.BaseClasses.BasePageObject;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 import java.io.File;
@@ -42,5 +43,12 @@ public class FormComponentsPO extends BasePageObject {
     public void selectSelectorInputLG() {
         Select select = new Select(getClickableElement(By.cssSelector("[class='form-control input-lg']")));
         select.selectByVisibleText(".input-lg");
+    }
+
+    public void setCheckBox(String numberOfTheBox, boolean isShouldBeChecked) {
+        checkTheCheckBox(isShouldBeChecked, By.xpath("(//*[@class='radio']//./input/..)["+numberOfTheBox+"]"),"class", "checked");
+    }
+
+    public void unCheckTheCheckBox(String numberOfTheBox) {
     }
 }

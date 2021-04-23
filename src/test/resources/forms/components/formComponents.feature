@@ -15,7 +15,8 @@ Feature:
 
       #Read values from attributes
       Scenario: Check boxes
-        When Form Components. I check the Check Box
-        And Form Components. Check Box should be checked
-        When Form Components. I check the Check Box
-        And Form Components. Check Box should be unchecked
+        When Form Components. I check the Check Box "5" if it is not checked
+        And Form Components. I wait for:"10" seconds
+        #And Form Components. Check Box should be checked
+        #When Form Components. I check the Check Box
+        #And Form Components. Check Box should be unchecked
