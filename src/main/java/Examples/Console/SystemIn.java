@@ -1,16 +1,26 @@
 package Examples.Console;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import io.cucumber.java.it.Ma;
+
+import java.util.*;
 
 public class SystemIn {
+List<String> listToPasData = new ArrayList<>();
 
     public static void main(String... args){
-        Scanner sc = new Scanner(System.in);
-        List<String> list = addValuesToTheList(sc);
-        System.out.println(list);
-        printMeList(list);
+        maps("fedgsedf ","Aaerfgerfge","wefewrwfr");
+    }
+
+    /**
+     * create a function which will create a map of the passed strings. keys should be filled in from 0 to
+     * the number of the passed arguments.
+     * @param sc
+     */
+    private static void maps(String... args){
+        Map<Integer,String> map = new HashMap<Integer,String>();
+        for (int i=1; i<args.length; i++){
+            map.put(i, args[i]);
+        }
     }
 
     private static void printMeAnything(Scanner sc){
@@ -60,5 +70,22 @@ public class SystemIn {
             }
         }
         return list;
+    }
+
+    private static void mapsExample(){
+        Map<String, Integer> hm
+                = new HashMap<String, Integer>();
+
+        hm.put("a", 100);
+        hm.put("b", 200);
+        hm.put("c", 300);
+        hm.put("d", 400);
+        hm.replace("d", 500);
+        hm.remove("a");
+        // Traversing through the map
+        for (Map.Entry<String, Integer> me : hm.entrySet()) {
+            System.out.print(me.getKey() + ":");
+            System.out.println(me.getValue());
+        }
     }
 }
