@@ -29,7 +29,9 @@ public class SystemIn {
      * @param list
      */
     private static void printMeList(List<String> list){
-
+        for (String s : list) {
+            System.out.println(s);
+        }
     }
 
     /**
