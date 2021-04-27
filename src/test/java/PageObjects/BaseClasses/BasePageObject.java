@@ -1,25 +1,20 @@
 package PageObjects.BaseClasses;
 
+import PageObjects.Abstract.AbstractPO;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
-import org.testng.annotations.Optional;
 
 import java.time.Duration;
-import java.util.List;
 
-public class BasePageObject {
+public class BasePageObject extends AbstractPO {
     public String baseURL = "http://authenticgoods.co/wrapbootstrap/themes/neuboard-v1.4.3/Angular_full_version/index.html#";
     public WebDriver webDriver;
 
     public BasePageObject() {
-        WebDriverManager.chromedriver().setup();
-        webDriver = new ChromeDriver();
+        webDriver();
     }
 
     public WebElement getClickableElement(By locator) {
@@ -30,26 +25,19 @@ public class BasePageObject {
                 .until(driver -> driver.findElement(locator));
     }
 
-    public void waitForAttributeValue(By locator, String attributeName, String value){
-        new WebDriverWait(webDriver, 5)
+    public void waitForAttributeValue(By locator, String attributeName, String value) {
+        new FluentWait<>(webDriver)
+                .withTimeout(Duration.ofSeconds(30))
+                .pollingEvery(Duration.ofMillis(50))
+                .ignoring(NoSuchElementException.class)
                 .until(ExpectedConditions.attributeContains(locator, attributeName, value));
-    }
-
-    public void waitForPageLoaded() {
-        ExpectedCondition<Boolean> expectation = driver -> ((JavascriptExecutor) driver).executeScript("return document.readyState").toString().equals("complete");
-        try {
-            WebDriverWait wait = new WebDriverWait(webDriver, 30);
-            wait.until(expectation);
-        } catch (Throwable error) {
-            Assert.fail("Timeout waiting for Page Load Request to complete.");
-        }
     }
 
     public void checkTheCheckBox(boolean isShouldBeChecked, By locator, String attributeName, String condition) {
         WebElement checkBox = getClickableElement(locator);
-         if (!checkBox.getAttribute(attributeName).contains(condition) && isShouldBeChecked){
+        if (!checkBox.getAttribute(attributeName).contains(condition) && isShouldBeChecked) {
             checkBox.click();
-        } else if (checkBox.getAttribute(attributeName).contains(condition) && !isShouldBeChecked){
+        } else if (checkBox.getAttribute(attributeName).contains(condition) && !isShouldBeChecked) {
             checkBox.click();
         }
     }
@@ -59,5 +47,30 @@ public class BasePageObject {
             webDriver.close();
             webDriver = null;
         }
+    }
+
+    @Override
+    public void getTitle() {
+
+    }
+
+    @Override
+    public void webDriver() {
+        WebDriverManager.chromedriver().setup();
+        webDriver = new ChromeDriver();
+    }
+
+    @Override
+    public void waitForPageToBeLoaded() {
+        new FluentWait<>(webDriver)
+                .withTimeout(Duration.ofSeconds(30))
+                .pollingEvery(Duration.ofMillis(50))
+                .ignoring(NoSuchElementException.class)
+                .until(driver -> ((JavascriptExecutor) driver).executeScript("return document.readyState").toString().equals("complete"));
+    }
+
+    @Override
+    public void navigateToThePage() {
+
     }
 }

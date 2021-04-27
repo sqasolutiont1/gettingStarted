@@ -10,7 +10,7 @@ import java.io.File;
 public class FormComponentsPO extends BasePageObject {
     public void navigateToFormComponents() {
         webDriver.navigate().to(baseURL + "/forms/components");
-        waitForPageLoaded();
+        waitForPageToBeLoaded();
     }
 
     public void fillInEmailAddress(String emailAddress){
@@ -51,4 +51,5 @@ public class FormComponentsPO extends BasePageObject {
 
     public void unCheckTheCheckBox(String numberOfTheBox) {
     }
+
 }
