@@ -43,6 +43,9 @@ public class BasePageObject {
     }
 
     public void checkTheCheckBox(boolean isShouldBeChecked, By locator, String attributeName, String condition) {
+        /**
+         * 1. add verification if condition of the object was changed after the click action
+         */
         WebElement checkBox = getClickableElement(locator);
         if (!checkBox.getAttribute(attributeName).contains(condition) && isShouldBeChecked) {
             checkBox.click();
