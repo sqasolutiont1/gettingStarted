@@ -11,7 +11,10 @@ Feature:
   Scenario: Data Driven
     When Form Components. Workflow. I fill out form
     |email      |password      |fileName      |
-    |email@fg.rt| 123413242354 | contacts.txt |
+    |0@fg.rt| 123413242354 | contacts.txt |
+    |1@fg.rt| 123413242354 | contacts.txt |
+    |2@fg.rt| 123413242354 | contacts.txt |
+    |3@fg.rt| 123413242354 | contacts.txt |
     And Form Components. I wait for:"3" seconds
 
     Scenario: Selectors

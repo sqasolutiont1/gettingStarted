@@ -20,6 +20,12 @@ public class BasePageObject {
         }
     }
 
+    public void sendTextWithClear(By Locator, String text){
+        WebElement element = getClickableElement(Locator);
+        element.clear();
+        element.sendKeys(text);
+    }
+
     public WebElement getClickableElement(By locator) {
         return new FluentWait<>(webDriver)
                 .withTimeout(Duration.ofSeconds(30))

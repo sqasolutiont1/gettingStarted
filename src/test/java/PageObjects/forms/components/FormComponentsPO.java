@@ -2,10 +2,7 @@ package PageObjects.forms.components;
 
 import PageObjects.BaseClasses.BasePageObject;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
-
-import java.io.File;
 
 public class FormComponentsPO extends BasePageObject {
     public void navigateToFormComponents() {
@@ -14,11 +11,11 @@ public class FormComponentsPO extends BasePageObject {
     }
 
     public void fillInEmailAddress(String emailAddress){
-        getClickableElement(By.cssSelector("[id='exampleInputEmail1']")).sendKeys(emailAddress);
+        sendTextWithClear(By.cssSelector("[id='exampleInputEmail1']"), emailAddress);
     }
 
     public void fillInPassword(String password){
-        getClickableElement(By.cssSelector("[id='exampleInputPassword1']")).sendKeys(password);
+        sendTextWithClear(By.cssSelector("[id='exampleInputPassword1']"), password);
     }
 
     public void attachFile(String fileName){
