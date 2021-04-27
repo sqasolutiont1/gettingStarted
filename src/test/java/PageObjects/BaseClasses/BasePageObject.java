@@ -1,17 +1,16 @@
 package PageObjects.BaseClasses;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Optional;
 
+import java.time.Duration;
 import java.util.List;
 
 public class BasePageObject {
@@ -24,8 +23,11 @@ public class BasePageObject {
     }
 
     public WebElement getClickableElement(By locator) {
-        WebDriverWait wait = new WebDriverWait(webDriver, 10);
-        return wait.until(ExpectedConditions.elementToBeClickable(locator));
+        return new FluentWait<>(webDriver)
+                .withTimeout(Duration.ofSeconds(30))
+                .pollingEvery(Duration.ofMillis(50))
+                .ignoring(NoSuchElementException.class)
+                .until(driver -> driver.findElement(locator));
     }
 
     public void waitForAttributeValue(By locator, String attributeName, String value){
