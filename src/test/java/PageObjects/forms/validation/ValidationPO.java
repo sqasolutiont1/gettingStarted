@@ -8,7 +8,7 @@ import org.openqa.selenium.support.ui.Select;
 public class ValidationPO extends BasePageObject {
     public void navigateToValidationPO() {
         webDriver.navigate().to(baseURL + "/forms/validation");
-        waitForPageLoaded();
+        waitForPageToBeLoaded();
     }
 
     public void fillInName(String name){

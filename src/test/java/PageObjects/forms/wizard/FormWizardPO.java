@@ -7,7 +7,7 @@ public class FormWizardPO extends BasePageObject {
 
     public void navigateToWizardPage() {
         webDriver.navigate().to(baseURL + "/forms/wizard/step_one");
-        waitForPageLoaded();
+        waitForPageToBeLoaded();
     }
 
 
