@@ -9,12 +9,15 @@ import org.openqa.selenium.support.ui.FluentWait;
 
 import java.time.Duration;
 
-public class BasePageObject extends AbstractPO {
+public class BasePageObject {
     public String baseURL = "http://authenticgoods.co/wrapbootstrap/themes/neuboard-v1.4.3/Angular_full_version/index.html#";
-    public WebDriver webDriver;
+    public static WebDriver webDriver;
 
     public BasePageObject() {
-        webDriver();
+        WebDriverManager.chromedriver().setup();
+        if (webDriver == null){
+            webDriver = new ChromeDriver();
+        }
     }
 
     public WebElement getClickableElement(By locator) {
@@ -49,28 +52,11 @@ public class BasePageObject extends AbstractPO {
         }
     }
 
-    @Override
-    public void getTitle() {
-
-    }
-
-    @Override
-    public void webDriver() {
-        WebDriverManager.chromedriver().setup();
-        webDriver = new ChromeDriver();
-    }
-
-    @Override
     public void waitForPageToBeLoaded() {
         new FluentWait<>(webDriver)
                 .withTimeout(Duration.ofSeconds(30))
                 .pollingEvery(Duration.ofMillis(50))
                 .ignoring(NoSuchElementException.class)
                 .until(driver -> ((JavascriptExecutor) driver).executeScript("return document.readyState").toString().equals("complete"));
-    }
-
-    @Override
-    public void navigateToThePage() {
-
     }
 }

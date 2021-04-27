@@ -8,6 +8,11 @@ Feature:
     And Form Components. I press Submit button.
     And Form Components. I wait for:"3" seconds
 
+  Scenario: Data Driven
+    When Form Components. Workflow. I fill out form
+    |email      |password      |fileName      |
+    |email@fg.rt| 123413242354 | contacts.txt |
+    And Form Components. I wait for:"3" seconds
 
     Scenario: Selectors
       When Form Components. I select the selector
