@@ -31,3 +31,12 @@ Feature:
       |    Vlad 7   |Ka 354      | This is our awesome street address!6|My City7|My State7|my Zip7|
 
 
+    Scenario:
+      When I fill out wizard with data
+      |First Name|Last Name|Street Address|City|State|Zip|
+      |          |         |              |    |     |   |
+      |          |         |              |    |     |   |
+      Then I get the expected results
+      |First Name|Last Name|Address|
+      |          |         |       |
+      |          |         |       |
