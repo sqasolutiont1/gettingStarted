@@ -1,6 +1,5 @@
 package PageObjects.BaseClasses;
 
-import PageObjects.Abstract.AbstractPO;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -10,7 +9,7 @@ import org.openqa.selenium.support.ui.FluentWait;
 import java.time.Duration;
 
 public class BasePageObject {
-    public String baseURL = "http://authenticgoods.co/wrapbootstrap/themes/neuboard-v1.4.3/Angular_full_version/index.html#";
+    public String baseURL = "https://us.etrade.com/what-we-offer/our-accounts#tab_0";
     public static WebDriver webDriver;
 
     public BasePageObject() {
@@ -18,6 +17,14 @@ public class BasePageObject {
         if (webDriver == null){
             webDriver = new ChromeDriver();
         }
+    }
+
+    public void navigateTo() {
+        if (webDriver == null){
+            webDriver = new ChromeDriver();
+        }
+        webDriver.navigate().to(baseURL);
+        waitForPageToBeLoaded();
     }
 
     public void sendTextWithClear(By Locator, String text){

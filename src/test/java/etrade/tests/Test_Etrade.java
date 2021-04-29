@@ -1,13 +1,13 @@
 package etrade.tests;
 
 import etrade.PageObjects.OurAccountsPO;
+import etrade.PageObjects.wizard.GoalPO_First;
 import org.testng.Assert;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 class Test_Etrade {
     OurAccountsPO accounts = new OurAccountsPO();
+    GoalPO_First goal = new GoalPO_First();
     /**
      * 1. Use our existing Base PO
      * 2. Create Page Object to handle Pages:
@@ -21,17 +21,30 @@ class Test_Etrade {
      *
      */
 
-    @BeforeSuite
+    @BeforeMethod
     public void navigateToThePage(){
         accounts.navigateTo();
     }
 
     @Test
     public void checkTheTitle(){
-        Assert.assertEquals(accounts.getHeader(),"Our Accounts");
+        Assert.assertEquals(accounts.getHeader(),"Our Accounts", "Header label " +
+                "is not what we were expecting");
     }
 
-    @AfterSuite
+    @Test
+    public void pressOnCorePortfolios(){
+        accounts.pressOnCorePortfolios();
+    }
+
+    @Test
+    public void getToTheGoalPage(){
+        accounts.pressOnCorePortfolios();
+        accounts.waitForPageToBeLoaded();
+        Assert.assertEquals(goal.getHeader(), "Do you have a goal in mind?");
+    }
+
+    @AfterMethod
     public void closeTheDriver(){
         accounts.closeDriver();
     }
