@@ -26,22 +26,31 @@ class Test_Etrade {
         accounts.navigateTo();
     }
 
-    @Test
+    //@Test
     public void checkTheTitle(){
         Assert.assertEquals(accounts.getHeader(),"Our Accounts", "Header label " +
                 "is not what we were expecting");
     }
 
-    @Test
+    //@Test
     public void pressOnCorePortfolios(){
         accounts.pressOnCorePortfolios();
     }
 
-    @Test
+    //@Test
     public void getToTheGoalPage(){
         accounts.pressOnCorePortfolios();
         accounts.waitForPageToBeLoaded();
         Assert.assertEquals(goal.getHeader(), "Do you have a goal in mind?");
+    }
+
+    @Test
+    public void setTheGoal(){
+        accounts.pressOnCorePortfolios();
+        accounts.waitForPageToBeLoaded();
+        goal.selectGoal("retirement");
+        goal.pressContinueBtn();
+        goal.waitForPageToBeLoaded();
     }
 
     @AfterMethod
