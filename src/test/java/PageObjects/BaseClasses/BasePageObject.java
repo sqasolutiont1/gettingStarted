@@ -27,6 +27,14 @@ public class BasePageObject {
         waitForPageToBeLoaded();
     }
 
+    public void navigateTo(String url) {
+        if (webDriver == null){
+            webDriver = new ChromeDriver();
+        }
+        webDriver.navigate().to(url);
+        waitForPageToBeLoaded();
+    }
+
     public void sendTextWithClear(By Locator, String text){
         WebElement element = getClickableElement(Locator);
         element.clear();

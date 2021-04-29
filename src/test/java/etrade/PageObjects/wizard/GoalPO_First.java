@@ -4,13 +4,9 @@ import PageObjects.BaseClasses.BasePageObject;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 
-public class GoalPO_First extends BasePageObject {
+public class GoalPO_First extends WizardBasePO {
     public String getHeader(){
         return getClickableElement(By.cssSelector("[class='vertical-offset-xs text-center small-header']")).getText();
-    }
-
-    public void pressContinueBtn(){
-        getClickableElement(By.cssSelector("[type=\"button\"]")).click();
     }
 
     public void selectGoal(String goal){

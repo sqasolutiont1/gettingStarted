@@ -2,12 +2,14 @@ package etrade.tests;
 
 import etrade.PageObjects.OurAccountsPO;
 import etrade.PageObjects.wizard.GoalPO_First;
+import etrade.PageObjects.wizard.PlanToInvestPO;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
 class Test_Etrade {
     OurAccountsPO accounts = new OurAccountsPO();
     GoalPO_First goal = new GoalPO_First();
+    PlanToInvestPO invest = new PlanToInvestPO();
     /**
      * 1. Use our existing Base PO
      * 2. Create Page Object to handle Pages:
@@ -44,7 +46,7 @@ class Test_Etrade {
         Assert.assertEquals(goal.getHeader(), "Do you have a goal in mind?");
     }
 
-    @Test
+    //@Test
     public void setTheGoal(){
         accounts.pressOnCorePortfolios();
         accounts.waitForPageToBeLoaded();
@@ -52,6 +54,15 @@ class Test_Etrade {
         goal.pressContinueBtn();
         goal.waitForPageToBeLoaded();
     }
+
+    @Test
+    public void setInvesingAmount(){
+        invest.getMeToInvestments();
+        invest.setInitailVinestAmount("5000");
+        invest.pressContinueBtn();
+        invest.waitForPageToBeLoaded();
+    }
+
 
     @AfterMethod
     public void closeTheDriver(){
