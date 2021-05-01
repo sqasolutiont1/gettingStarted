@@ -17,8 +17,7 @@ public class BasePageObject {
 
     public BasePageObject() {
         WebDriverManager.chromedriver().properties("\\").setup();
-        if (webDriver == null){
-            webDriver = new ChromeDriver();
+        if (webDriver == null){ webDriver = new ChromeDriver();
         }
     }
 

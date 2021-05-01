@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.testng.Assert;
 
 public class GoalPO_First extends WizardBasePO {
+    public static final String URL = "https://us.etrade.com/etx/wm/core-portfolios/rtq/1?neo.skin=mininav";
     public static String simplyBuildWealth = "Simply build wealth";
     public static String SaveforRetirement = "Save for retirement";
     public static String TargetSpecificGoal = "Target a specific goal (e.g., buying a home)";
@@ -15,5 +16,13 @@ public class GoalPO_First extends WizardBasePO {
 
     public void selectGoal(String goal){
         getClickableElement(By.xpath("//span[normalize-space()='" + goal + "']")).click();
+    }
+
+    public String getErrorNotificationMessage() {
+        return getClickableElement(By.cssSelector("div[class='text-negative vertical-offset-xs']")).getText();
+    }
+
+    public String getSmallHEader() {
+        return getClickableElement(By.cssSelector("[class='vertical-offset-xs text-center small-header']")).getText();
     }
 }
