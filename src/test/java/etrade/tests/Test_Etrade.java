@@ -40,4 +40,13 @@ class Test_Etrade extends BaseTestComponent {
         invest.pressContinueBtn();
         invest.waitForPageToBeLoaded();
     }
+
+    @Test
+    public void setgoal(){
+        deposits.getMeToRecurringDeposits();
+        deposits.setgoal("50000");
+        deposits.setfrecuency("every 2 months");
+        deposits.pressContinueBtn();
+        deposits.waitForPageToBeLoaded();
+    }
 }
