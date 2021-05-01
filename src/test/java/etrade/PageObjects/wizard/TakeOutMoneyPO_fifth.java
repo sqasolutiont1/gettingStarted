@@ -5,18 +5,21 @@ import org.openqa.selenium.support.ui.Select;
 
 public class TakeOutMoneyPO_fifth extends WizardBasePO{
     String url = "https://us.etrade.com/etx/wm/core-portfolios/rtq/4?neo.skin=mininav";
+    public static String over11years = "Over 11 years or more";
+    public static String allAtOnce = "All at once";
+
 
     public void getMeToTakePotMoney(){
         navigateTo(url);
     }
 
-    public void selectNeedMoneyInYears(){
+    public void selectNeedMoneyInYears(String value){
         Select select = new Select(getClickableElement(By.xpath("(//select)[1]")));
-        select.selectByVisibleText("8-10 years");
+        select.selectByVisibleText(value);
     }
 
-    public void withdrawMoneyInYears(){
+    public void withdrawMoneyInYears(String value){
         Select select = new Select(getClickableElement(By.xpath("(//select)[2]")));
-        select.selectByVisibleText("Over 11 years or more");
+        select.selectByVisibleText(value);
     }
 }

@@ -1,5 +1,7 @@
 package etrade.tests;
 
+import etrade.PageObjects.wizard.GoalPO_First;
+import etrade.PageObjects.wizard.TakeOutMoneyPO_fifth;
 import etrade.tests.baseTestComponent.BaseTestComponent;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -38,14 +40,12 @@ class Test_Etrade extends BaseTestComponent {
 
     public void setFr() {
         recurringDeposit.getMeToRecurringDeposits();
-        recurringDeposit.selectFr();
     }
 
     @Test
     public void setWithdrwl() throws InterruptedException {
-        takeOutMoney.getMeToTakePotMoney();
-        takeOutMoney.selectNeedMoneyInYears();
-        takeOutMoney.withdrawMoneyInYears();
+        new WorkFlowComponent().firstWFCorePortfolios(GoalPO_First.SaveforRetirement,"23424", "456",
+                "656", TakeOutMoneyPO_fifth.over11years, TakeOutMoneyPO_fifth.allAtOnce );
         Thread.sleep(5000);
     }
 }

@@ -3,10 +3,13 @@ package PageObjects.BaseClasses;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 
 import java.time.Duration;
+import java.util.Arrays;
 
 public class BasePageObject {
     public String baseURL = "https://us.etrade.com/what-we-offer/our-accounts#tab_0";
