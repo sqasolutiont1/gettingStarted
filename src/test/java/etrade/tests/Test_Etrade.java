@@ -36,9 +36,16 @@ class Test_Etrade extends BaseTestComponent {
         invest.waitForPageToBeLoaded();
     }
 
-    @Test
     public void setFr() {
         recurringDeposit.getMeToRecurringDeposits();
         recurringDeposit.selectFr();
+    }
+
+    @Test
+    public void setWithdrwl() throws InterruptedException {
+        takeOutMoney.getMeToTakePotMoney();
+        takeOutMoney.selectNeedMoneyInYears();
+        takeOutMoney.withdrawMoneyInYears();
+        Thread.sleep(5000);
     }
 }
