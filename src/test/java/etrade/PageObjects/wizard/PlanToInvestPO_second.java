@@ -3,7 +3,7 @@ package etrade.PageObjects.wizard;
 import PageObjects.BaseClasses.BasePageObject;
 import org.openqa.selenium.By;
 
-public class PlanToInvestPO extends WizardBasePO {
+public class PlanToInvestPO_second extends WizardBasePO {
     String url = "https://us.etrade.com/etx/wm/core-portfolios/rtq/2?neo.skin=mininav";
 
     public void getMeToInvestments(){

@@ -15,7 +15,8 @@ class Test_Etrade {
      * 2. Create Page Object to handle Pages:
      * 2.1 https://us.etrade.com/what-we-offer/our-accounts#tab_0
      * 2.2 https://us.etrade.com/etx/wm/core-portfolios/rtq/1?neo.skin=mininav
-     *     * test:
+     *
+     * test:
      * 1. Check if you see the label Our Accounts on the first page
      * 2. press on the button
      * 3.
