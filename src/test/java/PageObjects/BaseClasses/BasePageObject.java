@@ -13,7 +13,7 @@ public class BasePageObject {
     public static WebDriver webDriver;
 
     public BasePageObject() {
-        WebDriverManager.chromedriver().setup();
+        WebDriverManager.chromedriver().properties("\\").setup();
         if (webDriver == null){
             webDriver = new ChromeDriver();
         }
