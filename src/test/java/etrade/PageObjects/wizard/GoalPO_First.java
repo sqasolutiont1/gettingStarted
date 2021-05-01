@@ -25,4 +25,8 @@ public class GoalPO_First extends WizardBasePO {
     public String getSmallHEader() {
         return getClickableElement(By.cssSelector("[class='vertical-offset-xs text-center small-header']")).getText();
     }
+
+    public Boolean checkIfContinueBtnIsPresent() {
+        return isElementDisplayed(WizardBasePO.continueBtn);
+    }
 }

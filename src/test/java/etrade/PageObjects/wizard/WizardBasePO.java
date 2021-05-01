@@ -14,9 +14,10 @@ import java.util.Set;
 public class WizardBasePO extends BasePageObject {
     Set<String> allWindowHandles;
     Iterator<String> iterator;
+    public static By continueBtn = By.cssSelector("[type=\"button\"]");
     public void pressContinueBtn() {
         Actions actions = new Actions(webDriver);
-        actions.click(getClickableElement(By.cssSelector("[type=\"button\"]"))).build().perform();
+        actions.click(getClickableElement(continueBtn)).build().perform();
 
         //Get handles of the windows
         String mainWindowHandle = webDriver.getWindowHandle();

@@ -51,6 +51,14 @@ public class BasePageObject {
                 .until(driver -> driver.findElement(locator));
     }
 
+    public Boolean isElementDisplayed(By locator) {
+        return new FluentWait<>(webDriver)
+                .withTimeout(Duration.ofSeconds(30))
+                .pollingEvery(Duration.ofMillis(50))
+                .ignoring(NoSuchElementException.class)
+                .until(driver -> driver.findElement(locator).isDisplayed());
+    }
+
     public void waitForAttributeValue(By locator, String attributeName, String value) {
         new FluentWait<>(webDriver)
                 .withTimeout(Duration.ofSeconds(30))

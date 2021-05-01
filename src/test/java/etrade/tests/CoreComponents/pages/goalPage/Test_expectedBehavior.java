@@ -13,7 +13,10 @@ public class Test_expectedBehavior extends BaseTestComponent {
         goal.navigateTo(GoalPO_First.URL);
     }
     @Test
-    public void checkLables(){
+    public void checkObjectsOnTheGoalPage(){
         Assert.assertEquals(goal.getSmallHEader(),"Do you have a goal in mind?","Error messgae");
+        Assert.assertTrue(goal.checkIfContinueBtnIsPresent(), "Continue Button is not on Goal Page");
     }
+
+
 }
