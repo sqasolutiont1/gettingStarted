@@ -29,4 +29,9 @@ public class GoalPO_First extends WizardBasePO {
     public Boolean checkIfContinueBtnIsPresent() {
         return isElementDisplayed(WizardBasePO.continueBtn);
     }
+
+    public Boolean checkIfImagesBeenLoadedOnGoalPage() {
+        Boolean tmp = isAllImagesLoaded(getClickableElement(By.xpath("(//*[@role=\"img\"])[1]")));
+        return tmp;
+    }
 }

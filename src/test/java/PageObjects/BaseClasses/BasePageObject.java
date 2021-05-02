@@ -51,6 +51,13 @@ public class BasePageObject {
                 .until(driver -> driver.findElement(locator));
     }
 
+    public Boolean isAllImagesLoaded(WebElement element){
+        Object tmp =  ((JavascriptExecutor)webDriver)
+                .executeScript("return arguments[0].complete && typeof arguments[0].naturalWidth != " +
+                        "\"undefined\" && arguments[0].naturalWidth > 0", element);
+        return true;
+    }
+
     public Boolean isElementDisplayed(By locator) {
         return new FluentWait<>(webDriver)
                 .withTimeout(Duration.ofSeconds(30))

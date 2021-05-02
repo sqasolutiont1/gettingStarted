@@ -16,6 +16,7 @@ public class Test_expectedBehavior extends BaseTestComponent {
     public void checkObjectsOnTheGoalPage(){
         Assert.assertEquals(goal.getSmallHEader(),"Do you have a goal in mind?","Error messgae");
         Assert.assertTrue(goal.checkIfContinueBtnIsPresent(), "Continue Button is not on Goal Page");
+        //Assert.assertTrue(goal.checkIfImagesBeenLoadedOnGoalPage(), "Not All images been loaded on Goal Page");
     }
 
 
