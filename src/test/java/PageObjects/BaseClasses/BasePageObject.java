@@ -3,10 +3,13 @@ package PageObjects.BaseClasses;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 
 import java.time.Duration;
+import java.util.Arrays;
 
 public class BasePageObject {
     public String baseURL = "https://us.etrade.com/what-we-offer/our-accounts#tab_0";
@@ -14,8 +17,7 @@ public class BasePageObject {
 
     public BasePageObject() {
         WebDriverManager.chromedriver().properties("\\").setup();
-        if (webDriver == null){
-            webDriver = new ChromeDriver();
+        if (webDriver == null){ webDriver = new ChromeDriver();
         }
     }
 
@@ -47,6 +49,21 @@ public class BasePageObject {
                 .pollingEvery(Duration.ofMillis(50))
                 .ignoring(NoSuchElementException.class)
                 .until(driver -> driver.findElement(locator));
+    }
+
+    public Boolean isAllImagesLoaded(WebElement element){
+        Object tmp =  ((JavascriptExecutor)webDriver)
+                .executeScript("return arguments[0].complete && typeof arguments[0].naturalWidth != " +
+                        "\"undefined\" && arguments[0].naturalWidth > 0", element);
+        return true;
+    }
+
+    public Boolean isElementDisplayed(By locator) {
+        return new FluentWait<>(webDriver)
+                .withTimeout(Duration.ofSeconds(30))
+                .pollingEvery(Duration.ofMillis(50))
+                .ignoring(NoSuchElementException.class)
+                .until(driver -> driver.findElement(locator).isDisplayed());
     }
 
     public void waitForAttributeValue(By locator, String attributeName, String value) {
