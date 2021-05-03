@@ -5,24 +5,33 @@ import org.openqa.selenium.By;
 import org.testng.Assert;
 
 public class GoalPO_First extends WizardBasePO {
+    public static final String URL = "https://us.etrade.com/etx/wm/core-portfolios/rtq/1?neo.skin=mininav";
+    public static String simplyBuildWealth = "Simply build wealth";
+    public static String SaveforRetirement = "Save for retirement";
+    public static String TargetSpecificGoal = "Target a specific goal (e.g., buying a home)";
+
     public String getHeader(){
         return getClickableElement(By.cssSelector("[class='vertical-offset-xs text-center small-header']")).getText();
     }
 
     public void selectGoal(String goal){
-        By locator = null;
-        By bw_locator = By.xpath("//span[normalize-space()='Simply build wealth']");
-        By sr_locator = By.xpath("//span[normalize-space()='Save for retirement']");
-        By go_locator = By.xpath("//span[normalize-space()='Target a specific goal (e.g., buying a home)']");
-        if (goal.equals("wealth")){
-            locator = bw_locator;
-        } else if (goal.equals("retirement")){
-            locator = sr_locator;
-        } else if (goal.equals("specific")){
-            locator = go_locator;
-        } else {
-            Assert.fail("Wrong goal specified");
-        }
-        getClickableElement(locator).click();
+        getClickableElement(By.xpath("//span[normalize-space()='" + goal + "']")).click();
+    }
+
+    public String getErrorNotificationMessage() {
+        return getClickableElement(By.cssSelector("div[class='text-negative vertical-offset-xs']")).getText();
+    }
+
+    public String getSmallHEader() {
+        return getClickableElement(By.cssSelector("[class='vertical-offset-xs text-center small-header']")).getText();
+    }
+
+    public Boolean checkIfContinueBtnIsPresent() {
+        return isElementDisplayed(WizardBasePO.continueBtn);
+    }
+
+    public Boolean checkIfImagesBeenLoadedOnGoalPage() {
+        Boolean tmp = isAllImagesLoaded(getClickableElement(By.xpath("(//*[@role=\"img\"])[1]")));
+        return tmp;
     }
 }

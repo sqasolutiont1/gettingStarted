@@ -1,53 +1,29 @@
 package etrade.tests;
 
-import etrade.PageObjects.OurAccountsPO;
 import etrade.PageObjects.wizard.GoalPO_First;
-import etrade.PageObjects.wizard.PlanToInvestPO;
+import etrade.PageObjects.wizard.TakeOutMoneyPO_fifth;
+import etrade.tests.baseTestComponent.BaseTestComponent;
 import org.testng.Assert;
-import org.testng.annotations.*;
+import org.testng.annotations.Test;
 
-class Test_Etrade {
-    OurAccountsPO accounts = new OurAccountsPO();
-    GoalPO_First goal = new GoalPO_First();
-    PlanToInvestPO invest = new PlanToInvestPO();
-    /**
-     * 1. Use our existing Base PO
-     * 2. Create Page Object to handle Pages:
-     * 2.1 https://us.etrade.com/what-we-offer/our-accounts#tab_0
-     * 2.2 https://us.etrade.com/etx/wm/core-portfolios/rtq/1?neo.skin=mininav
-     *
-     * test:
-     * 1. Check if you see the label Our Accounts on the first page
-     * 2. press on the button
-     * 3.
-     *
-     */
+class Test_Etrade extends BaseTestComponent {
 
-    @BeforeMethod
-    public void navigateToThePage(){
-        accounts.navigateTo();
-    }
-
-    //@Test
-    public void checkTheTitle(){
-        Assert.assertEquals(accounts.getHeader(),"Our Accounts", "Header label " +
+    public void checkTheTitle() {
+        Assert.assertEquals(accounts.getHeader(), "Our Accounts", "Header label " +
                 "is not what we were expecting");
     }
 
-    //@Test
-    public void pressOnCorePortfolios(){
+    public void pressOnCorePortfolios() {
         accounts.pressOnCorePortfolios();
     }
 
-    //@Test
-    public void getToTheGoalPage(){
+    public void getToTheGoalPage() {
         accounts.pressOnCorePortfolios();
         accounts.waitForPageToBeLoaded();
         Assert.assertEquals(goal.getHeader(), "Do you have a goal in mind?");
     }
 
-    //@Test
-    public void setTheGoal(){
+    public void setTheGoal() {
         accounts.pressOnCorePortfolios();
         accounts.waitForPageToBeLoaded();
         goal.selectGoal("retirement");
@@ -55,17 +31,21 @@ class Test_Etrade {
         goal.waitForPageToBeLoaded();
     }
 
-    @Test
-    public void setInvesingAmount(){
+    public void setInvesingAmount() {
         invest.getMeToInvestments();
         invest.setInitailVinestAmount("5000");
         invest.pressContinueBtn();
         invest.waitForPageToBeLoaded();
     }
 
+    public void setFr() {
+        recurringDeposit.getMeToRecurringDeposits();
+    }
 
-    @AfterMethod
-    public void closeTheDriver(){
-        accounts.closeDriver();
+    @Test
+    public void setWithdrwl() throws InterruptedException {
+        new WorkFlowComponent().firstWFCorePortfolios(GoalPO_First.SaveforRetirement,"23424", "456",
+                "656", TakeOutMoneyPO_fifth.over11years, TakeOutMoneyPO_fifth.allAtOnce );
+        Thread.sleep(5000);
     }
 }
