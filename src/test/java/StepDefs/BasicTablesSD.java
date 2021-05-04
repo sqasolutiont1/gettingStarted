@@ -21,4 +21,9 @@ public class BasicTablesSD {
     public void basicTablesIReadTheHeaderOfTheTable(DataTable dataTable) {
         Assert.assertEquals(basicTables.readTheHeader(),dataTable.asList());
     }
+
+    @Then("Basic Tables. I check the values in the table")
+    public void basicTablesICheckTheValuesInTheTable(DataTable dataTable) {
+        basicTables.readValuesFromTheTable();
+    }
 }
