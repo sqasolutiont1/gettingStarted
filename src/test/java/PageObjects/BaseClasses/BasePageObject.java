@@ -3,10 +3,14 @@ package PageObjects.BaseClasses;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 import java.time.Duration;
+import java.util.List;
 
 public class BasePageObject {
     public static WebDriver webDriver;
@@ -47,6 +51,14 @@ public class BasePageObject {
                 .pollingEvery(Duration.ofMillis(50))
                 .ignoring(NoSuchElementException.class)
                 .until(driver -> driver.findElement(locator));
+    }
+
+    public List<WebElement> getClickableElements(By locator) {
+        return new FluentWait<>(webDriver)
+                .withTimeout(Duration.ofSeconds(30))
+                .pollingEvery(Duration.ofMillis(50))
+                .ignoring(NoSuchElementException.class)
+                .until(driver -> driver.findElements(locator));
     }
 
     public Boolean isAllImagesLoaded(WebElement element) {
@@ -92,10 +104,18 @@ public class BasePageObject {
     }
 
     public void waitForPageToBeLoaded() {
-        new FluentWait<>(webDriver)
-                .withTimeout(Duration.ofSeconds(30))
-                .pollingEvery(Duration.ofMillis(50))
-                .ignoring(NoSuchElementException.class)
-                .until(driver -> ((JavascriptExecutor) driver).executeScript("return document.readyState").toString().equals("complete"));
-    }
+            ExpectedCondition<Boolean> expectation = new
+                    ExpectedCondition<Boolean>() {
+                        public Boolean apply(WebDriver driver) {
+                            return ((JavascriptExecutor) driver).executeScript("return document.readyState").toString().equals("complete");
+                        }
+                    };
+            try {
+                Thread.sleep(1000);
+                WebDriverWait wait = new WebDriverWait(webDriver, 30);
+                wait.until(expectation);
+            } catch (Throwable error) {
+                Assert.fail("Timeout waiting for Page Load Request to complete.");
+            }
+        }
 }
