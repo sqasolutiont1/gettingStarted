@@ -1,8 +1,7 @@
 package Examples.geekForGeeks;
-public class Statics
-{
-    public static void main(String[] args)
-    {
+
+public class Statics {
+    public static void main(String[] args) {
         // calling static method
         // without instantiating Student class
         Student.setCllg("XYZ");
@@ -16,20 +15,16 @@ public class Statics
     }
 }
 
-class Student
-{
+class Student {
+    // static variable
+    static String cllgName;
+    // static counter to set unique roll no
+    static int counter = 0;
     String name;
     int rollNo;
 
-    // static variable
-    static String cllgName;
 
-    // static counter to set unique roll no
-    static int counter = 0;
-
-
-    public Student(String name)
-    {
+    public Student(String name) {
         this.name = name;
 
         this.rollNo = setRollNo();
@@ -37,19 +32,18 @@ class Student
 
     // getting unique rollNo
     // through static variable(counter)
-    static int setRollNo()
-    {
+    static int setRollNo() {
         counter++;
         return counter;
     }
 
     // static method
-    static void setCllg(String name){
-        cllgName = name ;
+    static void setCllg(String name) {
+        cllgName = name;
     }
 
     // instance method
-    void getStudentInfo(){
+    void getStudentInfo() {
         System.out.println("name : " + this.name);
         System.out.println("rollNo : " + this.rollNo);
 

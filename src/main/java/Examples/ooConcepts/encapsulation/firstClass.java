@@ -5,7 +5,7 @@ public class firstClass {
     private String newURL = "";
 
     public String getURL() {
-        return URL+newURL;
+        return URL + newURL;
     }
 
     public void setNewURL(String newURL) {

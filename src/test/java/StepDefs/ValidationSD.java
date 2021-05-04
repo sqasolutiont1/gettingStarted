@@ -36,7 +36,7 @@ public class ValidationSD {
 
     @And("Validation. I wait for:{string} seconds")
     public void validationIWaitForSeconds(String seconds) throws InterruptedException {
-        Thread.sleep(Integer.parseInt(seconds)* 1000L);
+        Thread.sleep(Integer.parseInt(seconds) * 1000L);
     }
 
     @Given("Validation. I navigate to the Validation page")

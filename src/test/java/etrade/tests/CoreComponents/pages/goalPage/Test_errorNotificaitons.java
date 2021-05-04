@@ -9,13 +9,14 @@ import org.testng.annotations.Test;
 public class Test_errorNotificaitons extends BaseTestComponent {
     @Override
     @BeforeMethod
-    public void navigateToThePage(){
+    public void navigateToThePage() {
         goal.navigateTo(GoalPO_First.URL);
     }
+
     @Test
-    public void checkErroMassage(){
+    public void checkErroMassage() {
         goal.pressContinueBtn();
-        Assert.assertEquals(goal.getErrorNotificationMessage(),"Please select an option",
+        Assert.assertEquals(goal.getErrorNotificationMessage(), "Please select an option",
                 "Error notificaiton message is not what we are exapecting");
     }
 }

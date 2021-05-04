@@ -2,19 +2,16 @@ package etrade.PageObjects.wizard;
 
 import PageObjects.BaseClasses.BasePageObject;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.NoSuchWindowException;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 
 import java.util.Iterator;
 import java.util.Set;
 
 public class WizardBasePO extends BasePageObject {
+    public static By continueBtn = By.cssSelector("[type=\"button\"]");
     Set<String> allWindowHandles;
     Iterator<String> iterator;
-    public static By continueBtn = By.cssSelector("[type=\"button\"]");
+
     public void pressContinueBtn() {
         Actions actions = new Actions(webDriver);
         actions.click(getClickableElement(continueBtn)).build().perform();

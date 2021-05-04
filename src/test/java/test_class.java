@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 
 public class test_class {
     @Test
-    public void testme(){
+    public void testme() {
         WebDriverManager.chromedriver().setup();
         WebDriver webDriver = new ChromeDriver();
         webDriver.navigate().to("http://www.google.com");

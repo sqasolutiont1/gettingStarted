@@ -8,7 +8,7 @@ public class OurAccountsPO extends BasePageObject {
         return getClickableElement(By.cssSelector("h1")).getText();
     }
 
-    public void pressOnCorePortfolios(){
+    public void pressOnCorePortfolios() {
         getClickableElement(By.cssSelector("[alt='Get started on Core Portfolios']")).click();
     }
 }

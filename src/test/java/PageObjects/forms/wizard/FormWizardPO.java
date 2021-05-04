@@ -101,6 +101,6 @@ public class FormWizardPO extends BasePageObject {
     }
 
     public void waitForStepsChange(int step) {
-        waitForAttributeValue(By.xpath("(//*[@class='steps']/ul/li)["+ step +"]"), "class", "current");
+        waitForAttributeValue(By.xpath("(//*[@class='steps']/ul/li)[" + step + "]"), "class", "current");
     }
 }
