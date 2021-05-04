@@ -2,6 +2,7 @@ package StepDefs;
 
 import PageObjects.tables.BasicTables;
 import io.cucumber.datatable.DataTable;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
@@ -22,5 +23,11 @@ public class BasicTablesSD {
     @Then("Basic Tables. I check the values in the table")
     public void basicTablesICheckTheValuesInTheTable(DataTable dataTable) {
         Assert.assertEquals(basicTables.readValuesFromTheTable(), dataTable.asLists());
+    }
+
+    @And("Basic Tables. I check the whole table")
+    public void basicTablesICheckTheWholeTable(DataTable dataTable) {
+        System.out.println("This is what we are getting from out Scenario: " + dataTable.asMaps());
+        basicTables.readValuesFromTheWholeTable();
     }
 }
