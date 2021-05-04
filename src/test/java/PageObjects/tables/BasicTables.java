@@ -16,13 +16,13 @@ public class BasicTables extends BasePageObject {
     public List<String> readTheHeader() {
         List<WebElement> listOfCellsInHeader = getClickableElements(By.xpath("(//table//thead//tr)[1]//th"));
         List<String> listOfHeaderNames = new ArrayList<>();
-        for (int i=0; i<listOfCellsInHeader.size(); i++){
+        for (int i = 0; i < listOfCellsInHeader.size(); i++) {
             listOfHeaderNames.add(listOfCellsInHeader.get(i).getText());
         }
         return listOfHeaderNames;
     }
 
-    public void readValuesFromTheTable() {
+    public List<List<String>> readValuesFromTheTable() {
         /***
          * I am reading values from teh cell in ONE row
          */
@@ -71,7 +71,7 @@ public class BasicTables extends BasePageObject {
          * Outer loop: loops through the table: Row by Row. And it is uses as an exit condition the
          * total number of rows that we have got above. Delivers the List of the Cells in the Specific Row
          */
-        for (int i =0; i<numberOfRowsInTheTable; i++){
+        for (int i = 0; i < numberOfRowsInTheTable; i++) {
             /**
              * To loop throw the whole table row by row we have to modify
              * the locator to find the specific row.
@@ -79,13 +79,13 @@ public class BasicTables extends BasePageObject {
              * and we are going to change it inside of the loop
              * We are getting locator to all the cells in the specific row
              */
-            List<WebElement> listOfTheCellsInOneRow = getClickableElements(By.xpath("(//table//tbody//tr)["+(i+1)+"]//td"));
+            List<WebElement> listOfTheCellsInOneRow = getClickableElements(By.xpath("(//table//tbody//tr)[" + (i + 1) + "]//td"));
             /**
              * Inner loop: Delivers the access to each
              * Cell in the current row. We are getting
              * the current row from Outer Loop.
              */
-            for (int j=0; j<listOfTheCellsInOneRow.size(); j++){
+            for (int j = 0; j < listOfTheCellsInOneRow.size(); j++) {
                 listOfValuesInOneRow.add(listOfTheCellsInOneRow.get(j).getText());
             }
             /**
@@ -100,6 +100,6 @@ public class BasicTables extends BasePageObject {
              */
             listOfValuesInOneRow = new ArrayList<>();
         }
-        System.out.println(listOfValuesFromAllRows);
+        return listOfValuesFromAllRows;
     }
 }
