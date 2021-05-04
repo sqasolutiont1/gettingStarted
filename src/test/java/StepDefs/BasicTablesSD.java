@@ -1,8 +1,14 @@
 package StepDefs;
 
 import PageObjects.tables.BasicTables;
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.testng.Assert;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class BasicTablesSD {
     BasicTables basicTables = new BasicTables();
@@ -12,7 +18,7 @@ public class BasicTablesSD {
     }
 
     @Then("Basic Tables. I read the Header of the Table")
-    public void basicTablesIReadTheHeaderOfTheTable() {
-        basicTables.readTheHeader();
+    public void basicTablesIReadTheHeaderOfTheTable(DataTable dataTable) {
+        Assert.assertEquals(basicTables.readTheHeader(),dataTable.asList());
     }
 }

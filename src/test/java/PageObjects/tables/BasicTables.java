@@ -1,10 +1,10 @@
 package PageObjects.tables;
 
 import PageObjects.BaseClasses.BasePageObject;
-import io.cucumber.java.en.Then;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class BasicTables extends BasePageObject {
@@ -13,13 +13,12 @@ public class BasicTables extends BasePageObject {
         waitForPageToBeLoaded();
     }
 
-    public String readTheHeader() {
+    public List<String> readTheHeader() {
         List<WebElement> listOfCellsInHeader = getClickableElements(By.xpath("(//table//thead//tr)[1]//th"));
+        List<String> listOfHeaderNames = new ArrayList<>();
         for (int i=0; i<listOfCellsInHeader.size(); i++){
-            System.out.println(listOfCellsInHeader.get(i).getText());
+            listOfHeaderNames.add(listOfCellsInHeader.get(i).getText());
         }
-        return null;
+        return listOfHeaderNames;
     }
-
-
 }
