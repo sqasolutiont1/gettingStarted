@@ -1,11 +1,14 @@
 package PageObjects.tables;
 
 import PageObjects.BaseClasses.BasePageObject;
+import io.cucumber.java.it.Ma;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class BasicTables extends BasePageObject {
     public void navigateToBasicTablesPage() {
@@ -101,5 +104,45 @@ public class BasicTables extends BasePageObject {
             listOfValuesInOneRow = new ArrayList<>();
         }
         return listOfValuesFromAllRows;
+    }
+
+    public void readValuesFromTheWholeTable() {
+        /**
+         * This one for Header data
+         */
+        List<WebElement> listOfCellsInHeader = getClickableElements(By.xpath("(//table//thead//tr)[1]//th"));
+        List<String> listOfHeaderNames = new ArrayList<>();
+        for (int i = 0; i < listOfCellsInHeader.size(); i++) {
+            listOfHeaderNames.add(listOfCellsInHeader.get(i).getText());
+        }
+        /**
+         * This one for Table data
+         */
+        int numberOfRowsInTheTable = getClickableElements(By.xpath("(//table//tbody)[1]/tr")).size();
+        List<List<String>> listOfValuesFromAllRows = new ArrayList<List<String>>();
+        List<String> listOfValuesInOneRow = new ArrayList<>();
+        for (int i = 0; i < numberOfRowsInTheTable; i++) {
+            List<WebElement> listOfTheCellsInOneRow = getClickableElements(By.xpath("(//table//tbody//tr)[" + (i + 1) + "]//td"));
+            for (int j = 0; j < listOfTheCellsInOneRow.size(); j++) {
+                listOfValuesInOneRow.add(listOfTheCellsInOneRow.get(j).getText());
+            }
+            listOfValuesFromAllRows.add(listOfValuesInOneRow);
+            listOfValuesInOneRow = new ArrayList<>();
+        }
+        /**
+         * Our Goal:
+         * 1. Take elements from Header List and make them Keys in Maps.
+         * 2. Take elements from Table List Of teh Lists (List of teh Rows) and make them Values for those Keys.
+         */
+        List<Map<String,String>> mapList = new ArrayList<>();
+        Map<String,String> map = new HashMap<>();
+        for (int i=0; i<listOfCellsInHeader.size(); i++){
+            for (int j = 0; j<listOfValuesFromAllRows.size(); j++){
+                map.put(listOfHeaderNames.get(i),listOfValuesFromAllRows.get(j).get(i));
+            }
+            mapList.add(map);
+            map = new HashMap<>();
+        }
+        System.out.println("This is what we are getting from the WebSite" + mapList);
     }
 }
