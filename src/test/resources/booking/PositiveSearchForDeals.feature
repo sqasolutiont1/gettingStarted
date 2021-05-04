@@ -1,4 +1,6 @@
 Feature:
+
   Background:
-    Given
+  Given
+
   Scenario:

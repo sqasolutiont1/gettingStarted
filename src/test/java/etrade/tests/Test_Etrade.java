@@ -44,8 +44,8 @@ class Test_Etrade extends BaseTestComponent {
 
     @Test
     public void setWithdrwl() throws InterruptedException {
-        new WorkFlowComponent().firstWFCorePortfolios(GoalPO_First.SaveforRetirement,"23424", "456",
-                "656", TakeOutMoneyPO_fifth.over11years, TakeOutMoneyPO_fifth.allAtOnce );
+        new WorkFlowComponent().firstWFCorePortfolios(GoalPO_First.SaveforRetirement, "23424", "456",
+                "656", TakeOutMoneyPO_fifth.over11years, TakeOutMoneyPO_fifth.allAtOnce);
         Thread.sleep(5000);
     }
 }

@@ -1,6 +1,6 @@
 package Examples.ooConcepts.abstraction;
 
-public class smallBoat implements Boat, BoatWithSail{
+public class smallBoat implements Boat, BoatWithSail {
     @Override
     public void measures() {
 
@@ -13,6 +13,6 @@ public class smallBoat implements Boat, BoatWithSail{
 
     @Override
     public void sail() {
-        
+
     }
 }

@@ -1,6 +1,6 @@
 package Examples.ooConcepts.abstraction;
 
-public class ToyotaCar extends Car{
+public class ToyotaCar extends Car {
     @Override
     void color() {
         System.out.println("efgefr");

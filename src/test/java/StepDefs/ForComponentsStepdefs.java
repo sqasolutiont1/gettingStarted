@@ -30,7 +30,7 @@ public class ForComponentsStepdefs {
 
     @And("Form Components. I wait for:{string} seconds")
     public void iWaitForSeconds(String seconds) throws InterruptedException {
-        Thread.sleep(Integer.parseInt(seconds)* 1000L);
+        Thread.sleep(Integer.parseInt(seconds) * 1000L);
     }
 
     @And("Form Components. I fill in password with data: {string}")
@@ -55,6 +55,6 @@ public class ForComponentsStepdefs {
 
     @When("Form Components. I check the Check Box {string} if it is not checked")
     public void formComponentsICheckTheCheckBoxIfItIsNotChecked(String numberOfTheBox) {
-        formComponents.setCheckBox(numberOfTheBox,false);
+        formComponents.setCheckBox(numberOfTheBox, false);
     }
 }

@@ -14,13 +14,14 @@ public class BaseTestComponent {
     public PlanToInvestPO_second invest = new PlanToInvestPO_second();
     public RecurringDeposits_third recurringDeposit = new RecurringDeposits_third();
     public TakeOutMoneyPO_fifth takeOutMoney = new TakeOutMoneyPO_fifth();
+
     @BeforeMethod
-    public void navigateToThePage(){
+    public void navigateToThePage() {
         accounts.navigateTo();
     }
 
     @AfterMethod
-    public void closeTheDriver(){
+    public void closeTheDriver() {
         accounts.closeDriver();
     }
 }

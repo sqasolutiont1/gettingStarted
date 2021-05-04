@@ -1,34 +1,33 @@
 package Examples.Console;
 
-import io.cucumber.java.it.Ma;
-
 import java.util.*;
 
 public class SystemIn {
-List<String> listToPasData = new ArrayList<>();
+    List<String> listToPasData = new ArrayList<>();
 
-    public static void main(String... args){
-        maps("fedgsedf ","Aaerfgerfge","wefewrwfr");
+    public static void main(String... args) {
+        maps("fedgsedf ", "Aaerfgerfge", "wefewrwfr");
     }
 
     /**
      * create a function which will create a map of the passed strings. keys should be filled in from 0 to
      * the number of the passed arguments.
+     *
      * @param sc
      */
-    private static void maps(String... args){
-        Map<Integer,String> map = new HashMap<Integer,String>();
-        for (int i=1; i<args.length; i++){
+    private static void maps(String... args) {
+        Map<Integer, String> map = new HashMap<Integer, String>();
+        for (int i = 1; i < args.length; i++) {
             map.put(i, args[i]);
         }
     }
 
-    private static void printMeAnything(Scanner sc){
-        while(sc.hasNextLine()) {
+    private static void printMeAnything(Scanner sc) {
+        while (sc.hasNextLine()) {
             String valueFromTheConsole = sc.nextLine();
-            if(!valueFromTheConsole.equals("exit")){
+            if (!valueFromTheConsole.equals("exit")) {
                 System.out.println(valueFromTheConsole);
-            } else{
+            } else {
                 System.exit(0);
             }
         }
@@ -36,9 +35,10 @@ List<String> listToPasData = new ArrayList<>();
 
     /**
      * implement function which will print list line by line
+     *
      * @param list
      */
-    private static void printMeList(List<String> list){
+    private static void printMeList(List<String> list) {
         for (String s : list) {
             System.out.println(s);
         }
@@ -46,9 +46,10 @@ List<String> listToPasData = new ArrayList<>();
 
     /**
      * create function which will return all the values typed in the console as the List of Strings
+     *
      * @return
      */
-    private static List<String> addValuesToTheList(Scanner sc){
+    private static List<String> addValuesToTheList(Scanner sc) {
         /**
          * 1, we gave to creatre a list. Why? we dont have any lists with which we supposed to work.
          * 2. we are going to write values to that list until exit word to be passed
@@ -61,18 +62,18 @@ List<String> listToPasData = new ArrayList<>();
          */
         List<String> list = new ArrayList<>();
 
-        while(sc.hasNextLine()) {
+        while (sc.hasNextLine()) {
             String valueFromTheConsole = sc.nextLine();
-            if(!valueFromTheConsole.equals("exit")){
+            if (!valueFromTheConsole.equals("exit")) {
                 list.add(valueFromTheConsole);
-            } else{
+            } else {
                 return list;
             }
         }
         return list;
     }
 
-    private static void mapsExample(){
+    private static void mapsExample() {
         Map<String, Integer> hm
                 = new HashMap<String, Integer>();
 
