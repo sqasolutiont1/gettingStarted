@@ -104,18 +104,18 @@ public class BasePageObject {
     }
 
     public void waitForPageToBeLoaded() {
-            ExpectedCondition<Boolean> expectation = new
-                    ExpectedCondition<Boolean>() {
-                        public Boolean apply(WebDriver driver) {
-                            return ((JavascriptExecutor) driver).executeScript("return document.readyState").toString().equals("complete");
-                        }
-                    };
-            try {
-                Thread.sleep(1000);
-                WebDriverWait wait = new WebDriverWait(webDriver, 30);
-                wait.until(expectation);
-            } catch (Throwable error) {
-                Assert.fail("Timeout waiting for Page Load Request to complete.");
-            }
+        ExpectedCondition<Boolean> expectation = new
+                ExpectedCondition<Boolean>() {
+                    public Boolean apply(WebDriver driver) {
+                        return ((JavascriptExecutor) driver).executeScript("return document.readyState").toString().equals("complete");
+                    }
+                };
+        try {
+            Thread.sleep(1000);
+            WebDriverWait wait = new WebDriverWait(webDriver, 30);
+            wait.until(expectation);
+        } catch (Throwable error) {
+            Assert.fail("Timeout waiting for Page Load Request to complete.");
         }
+    }
 }
