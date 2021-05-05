@@ -5,10 +5,7 @@ import io.cucumber.java.it.Ma;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class BasicTables extends BasePageObject {
     public void navigateToBasicTablesPage() {
@@ -106,7 +103,7 @@ public class BasicTables extends BasePageObject {
         return listOfValuesFromAllRows;
     }
 
-    public void readValuesFromTheWholeTable() {
+    public List<Map<String,String>> readValuesFromTheWholeTable() {
         /**
          * This one for Header data
          */
@@ -132,17 +129,20 @@ public class BasicTables extends BasePageObject {
         /**
          * Our Goal:
          * 1. Take elements from Header List and make them Keys in Maps.
-         * 2. Take elements from Table List Of teh Lists (List of teh Rows) and make them Values for those Keys.
+         * 2. Take elements from Table List Of the Lists (List of teh Rows) and make them Values for those Keys.
          */
+        List<WebElement> listOfTheCellsInOneRow = getClickableElements(By.xpath("(//table//tbody//tr)[1]//td"));
         List<Map<String,String>> mapList = new ArrayList<>();
-        Map<String,String> map = new HashMap<>();
-        for (int i=0; i<listOfCellsInHeader.size(); i++){
-            for (int j = 0; j<listOfValuesFromAllRows.size(); j++){
-                map.put(listOfHeaderNames.get(i),listOfValuesFromAllRows.get(j).get(i));
+        LinkedHashMap<String,String> map = new LinkedHashMap<>();
+        for(int i = 1; i<listOfCellsInHeader.size();i++){
+            for (int j=0; j<listOfTheCellsInOneRow.size();j++){
+                listOfTheCellsInOneRow = getClickableElements(By.xpath("(//table//tbody//tr)["+i+"]//td"));
+                map.put(listOfCellsInHeader.get(j).getText(),listOfTheCellsInOneRow.get(j).getText());
             }
             mapList.add(map);
-            map = new HashMap<>();
+            map = new LinkedHashMap<>();
         }
         System.out.println("This is what we are getting from the WebSite" + mapList);
+        return mapList;
     }
 }

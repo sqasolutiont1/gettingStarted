@@ -28,6 +28,6 @@ public class BasicTablesSD {
     @And("Basic Tables. I check the whole table")
     public void basicTablesICheckTheWholeTable(DataTable dataTable) {
         System.out.println("This is what we are getting from out Scenario: " + dataTable.asMaps());
-        basicTables.readValuesFromTheWholeTable();
+        Assert.assertEquals(dataTable.asMaps(), basicTables.readValuesFromTheWholeTable());
     }
 }

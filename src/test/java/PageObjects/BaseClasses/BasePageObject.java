@@ -17,7 +17,7 @@ public class BasePageObject {
     public String baseURL = "http://authenticgoods.co/wrapbootstrap/themes/neuboard-v1.4.3/Angular_full_version/index.html#";
 
     public BasePageObject() {
-        WebDriverManager.chromedriver().properties("\\").setup();
+        WebDriverManager.chromedriver().setup();
         if (webDriver == null) {
             webDriver = new ChromeDriver();
         }
@@ -104,18 +104,19 @@ public class BasePageObject {
     }
 
     public void waitForPageToBeLoaded() {
-        ExpectedCondition<Boolean> expectation = new
-                ExpectedCondition<Boolean>() {
-                    public Boolean apply(WebDriver driver) {
-                        return ((JavascriptExecutor) driver).executeScript("return document.readyState").toString().equals("complete");
-                    }
-                };
-        try {
-            Thread.sleep(1000);
-            WebDriverWait wait = new WebDriverWait(webDriver, 30);
-            wait.until(expectation);
-        } catch (Throwable error) {
-            Assert.fail("Timeout waiting for Page Load Request to complete.");
-        }
+        final String javaScriptToLoadAngular =
+                "var injector = window.angular.element('body').injector();" +
+                        "var $http = injector.get('$http');" +
+                        "return ($http.pendingRequests.length === 0)";
+
+        ExpectedCondition<Boolean> pendingHttpCallsCondition = new ExpectedCondition<Boolean>() {
+            public Boolean apply(WebDriver driver) {
+                return ((JavascriptExecutor) driver).executeScript(javaScriptToLoadAngular).equals(true);
+            }
+        };
+        new FluentWait<>(webDriver)
+                .withTimeout(Duration.ofSeconds(30))
+                .pollingEvery(Duration.ofMillis(50))
+                .until(pendingHttpCallsCondition);
     }
 }
