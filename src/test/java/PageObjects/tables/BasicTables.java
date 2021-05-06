@@ -1,7 +1,6 @@
 package PageObjects.tables;
 
 import PageObjects.BaseClasses.BasePageObject;
-import io.cucumber.java.it.Ma;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
