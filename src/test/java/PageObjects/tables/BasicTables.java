@@ -128,15 +128,39 @@ public class BasicTables extends BasePageObject {
         /**
          * Our Goal:
          * 1. Take elements from Header List and make them Keys in Maps.
-         * 2. Take elements from Table List Of the Lists (List of teh Rows) and make them Values for those Keys.
+         * 2. Take elements from Table List Of the Lists (List of the Rows) and make them Values for those Keys.
+         */
+        /**
+         * This is the list of the cells in one row. Why do we need it?
+         * We need it only for our loop condition. We are going to iterate through out row, And we need
+         * to know how many cells we have in one row.
          */
         List<WebElement> listOfTheCellsInOneRow = getClickableElements(By.xpath("(//table//tbody//tr)[1]//td"));
+
+        /**
+         * This is the list of the cells in Header. Why do we need it?
+         * We need it only for our loop condition. We are going to iterate through this row of headers, And we need
+         * to know how many cells we have in Headers.
+         */
+        List<WebElement> listOfCellsInHeader1 = getClickableElements(By.xpath("(//table//thead//tr)[1]//th"));
+
+        /**
+         * We need list of the maps, because this is exactly what we are getting from out table with test data
+         * in Cucumber
+         */
         List<Map<String,String>> mapList = new ArrayList<>();
+        /**
+         * Creating a map to hold keys and values from the table
+         */
         LinkedHashMap<String,String> map = new LinkedHashMap<>();
+
         for(int i = 1; i<listOfCellsInHeader.size();i++){
+            /**
+             * Internal loop fills in Map with Key/Value for ONE Row
+             */
             for (int j=0; j<listOfTheCellsInOneRow.size();j++){
-                listOfTheCellsInOneRow = getClickableElements(By.xpath("(//table//tbody//tr)["+i+"]//td"));
-                map.put(listOfCellsInHeader.get(j).getText(),listOfTheCellsInOneRow.get(j).getText());
+                List<WebElement> cellsInOneRow = getClickableElements(By.xpath("(//table//tbody//tr)["+i+"]//td"));
+                map.put(listOfCellsInHeader.get(j).getText(),cellsInOneRow.get(j).getText());
             }
             mapList.add(map);
             map = new LinkedHashMap<>();
