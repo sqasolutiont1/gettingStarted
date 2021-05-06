@@ -33,4 +33,9 @@ public class DataTableSD {
     public void dataTableICheckTheDefaultPagination(String arg0) {
         Assert.assertEquals(dataTable.getCurrentPagination(),arg0);
     }
+
+    @When("Data Table. I change pagination to {string}")
+    public void dataTableIChangePaginationTo(String arg0) {
+        dataTable.changePaginationTo(arg0);
+    }
 }

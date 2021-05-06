@@ -25,4 +25,8 @@ public class DataTable extends BasePageObject {
     public String getCurrentPagination() {
         return new Select(getClickableElement(By.cssSelector("[name=\"example_length\"]"))).getFirstSelectedOption().getText();
     }
+
+    public void changePaginationTo(String arg0) {
+        new Select(getClickableElement(By.cssSelector("[name=\"example_length\"]"))).selectByValue(arg0);
+    }
 }

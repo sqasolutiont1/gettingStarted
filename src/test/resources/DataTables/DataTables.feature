@@ -18,4 +18,12 @@ Feature:
   Scenario: Check Pagination
     When Data Table. I check the default pagination: "10"
     Then Data Table. I see "10" rows
+    When Data Table. I change pagination to "25"
+    Then Data Table. I see "25" rows
+    When Data Table. I change pagination to "50"
+    Then Data Table. I see "50" rows
+    When Data Table. I change pagination to "100"
+    Then Data Table. I see "57" rows
+
+
 
