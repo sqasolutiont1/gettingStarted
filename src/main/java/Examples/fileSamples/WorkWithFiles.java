@@ -112,7 +112,6 @@ public class WorkWithFiles {
             System.out.println("Writesheet.xlsx written successfully");
         }
 
-
         private static void openFile() throws IOException {
             File file = new File("openworkbook.xlsx");
             FileInputStream fIP = null;

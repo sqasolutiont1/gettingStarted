@@ -30,4 +30,14 @@ public class BasicTablesSD {
         System.out.println("This is what we are getting from out Scenario: " + dataTable.asMaps());
         Assert.assertEquals(dataTable.asMaps(), basicTables.readValuesFromTheWholeTable());
     }
+
+    @And("Basic Tables. I check the whole table. Asserting from the File")
+    public void basicTablesICheckTheWholeTableAssertingFromTheFile() {
+        /**
+         * find the way to get test data for the assertion from the file
+         *
+         */
+
+        Assert.assertEquals(dataTable.asMaps(), basicTables.readValuesFromTheWholeTable());
+    }
 }
