@@ -10,7 +10,7 @@ import java.util.List;
 
 public class BasePageObject {
     public static WebDriver webDriver;
-    public String baseURL = "http://authenticgoods.co/wrapbootstrap/themes/neuboard-v1.4.3/Angular_full_version/index.html#";
+    public static String baseURL = "http://authenticgoods.co/wrapbootstrap/themes/neuboard-v1.4.3/Angular_full_version/index.html#";
 
     public BasePageObject() {
         WebDriverManager.chromedriver().setup();
