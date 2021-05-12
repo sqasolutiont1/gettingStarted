@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 public class test_class {
     @DataProvider(name = "ThisISANameOFDataProviderItSelf")
     public Object[][] createData1() {
-        return new Object[][] {
+        return new Object[][]{
                 //POI will read the file and return the content of the file as the collection
         };
     }

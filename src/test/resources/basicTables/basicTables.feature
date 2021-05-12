@@ -15,6 +15,6 @@ Feature:
       | 3 | Larry      | the Bird  | @twitter |
 
 
-    Scenario: With Data from the Files
-      When Basic Tables. I navigate to basic Tables
-      And Basic Tables. I check the whole table. Asserting from the File
+  Scenario: With Data from the Files
+    When Basic Tables. I navigate to basic Tables
+    And Basic Tables. I check the whole table. Asserting from the File

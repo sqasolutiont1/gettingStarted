@@ -3,7 +3,10 @@ package PageObjects.BaseClasses;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.*;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 import java.util.List;
@@ -73,7 +76,7 @@ public class BasePageObject {
     }
 
     public ExpectedCondition<Boolean> isElementNotVisible(By locator) {
-       return new WebDriverWait(webDriver, 5).until(webDriver -> ExpectedConditions.invisibilityOf(webDriver.findElement(locator)));
+        return new WebDriverWait(webDriver, 5).until(webDriver -> ExpectedConditions.invisibilityOf(webDriver.findElement(locator)));
     }
 
 

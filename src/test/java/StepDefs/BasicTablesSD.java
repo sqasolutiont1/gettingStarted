@@ -43,6 +43,6 @@ public class BasicTablesSD {
         TestDataManipulation testData = new TestDataManipulation();
         testData.createTestData(TestDataManipulation.testData);
         testData.readFromFile(TestDataManipulation.testData);
-                //basicTables.readValuesFromTheWholeTable());
+        //basicTables.readValuesFromTheWholeTable());
     }
 }

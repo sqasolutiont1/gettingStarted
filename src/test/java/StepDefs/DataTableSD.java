@@ -9,6 +9,7 @@ import org.testng.Assert;
 
 public class DataTableSD {
     DataTable dataTable = new DataTable();
+
     @Given("Data Table. I navigate to Data Table Page")
     public void dataTableINavigateToDataTablePage() {
         dataTable.navigateToDataTablePage();
@@ -31,7 +32,7 @@ public class DataTableSD {
 
     @When("Data Table. I check the default pagination: {string}")
     public void dataTableICheckTheDefaultPagination(String arg0) {
-        Assert.assertEquals(dataTable.getCurrentPagination(),arg0);
+        Assert.assertEquals(dataTable.getCurrentPagination(), arg0);
     }
 
     @When("Data Table. I change pagination to {string}")
