@@ -9,20 +9,18 @@ public class test_class {
     @DataProvider(name = "ThisISANameOFDataProviderItSelf")
     public Object[][] createData1() {
         return new Object[][]{
-                //POI will read the file and return the content of the file as the collection
+                { "Cedric", "435643" },
+                { "Anne", "34534"},
         };
     }
 
-    @Test(dataProvider = "ThisISANameOFDataProviderItSelf")
-    /**
-     * this test will accept the Collection as an input for it's Test Data
-     */
-    public void testme(String n1, Integer n2) {
+   @Test(dataProvider = "ThisISANameOFDataProviderItSelf")
+    public static void testme(String n1, String n2) {
         System.out.println(n1 + " " + n2);
 
-        WebDriverManager.chromedriver().setup();
-        WebDriver webDriver = new ChromeDriver();
-        webDriver.navigate().to("http://www.google.com");
-        Assert.assertEquals(webDriver.getTitle(), "Google");
+//        WebDriverManager.chromedriver().setup();
+//        WebDriver webDriver = new ChromeDriver();
+//        webDriver.navigate().to("http://www.google.com");
+//        Assert.assertEquals(webDriver.getTitle(), "Google");
     }
 }

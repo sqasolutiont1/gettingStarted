@@ -1,5 +1,3 @@
-package test;
-
 import PageObjects.forms.wizard.FormWizardPO;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
@@ -10,6 +8,7 @@ public class Test_Wizard_with_dataProviders {
 
     @DataProvider(name = "wizard")
     public static Object[][] wizard() {
+
         return new Object[0][];
     }
 
