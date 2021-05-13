@@ -66,10 +66,8 @@ public class RestApiStepDef {
         Assert.assertEquals(responseCode, 200);
         List<Map<String, String>> entries = response.jsonPath().getList("entries");
         for (int i=0; i<entries.size(); i++){
-            System.out.println(entries.get(i).get("Category"));
-            Assert.assertEquals(entries.get(i).get("Category"),"Animals");
+            System.out.println(entries.get(i).get("Link"));
         }
-
     }
 
     @When("I call for the random joke, I get it")
@@ -92,8 +90,24 @@ public class RestApiStepDef {
                 get("/joke/Any");
         int responseCode = response.then().assertThat().extract().response().getStatusCode();
         Assert.assertEquals(responseCode, 200);
-        //System.out.println(response.then().extract().body().jsonPath().prettify());
         System.out.println(response.then().extract().body().jsonPath().get("setup").toString());
         System.out.println(response.then().extract().body().jsonPath().get("delivery").toString());
+        response.jsonPath().prettyPrint();
+        //System.out.println(response.then().extract().body().jsonPath().prettify());
+        //System.out.println(response.then().extract().body().jsonPath().get("setup").toString());
+       // System.out.println(response.then().extract().body().jsonPath().get("delivery").toString());
+    }
+
+    @When("I list all catigories")
+    public void iListAllCatigories() {
+        request = new RequestSpecBuilder().
+                setBaseUri("https://api.publicapis.org").
+                build();
+        Response response = given().
+                spec(request).
+                when().
+                get("/categories");
+        System.out.println(response.then().assertThat().statusCode(200));
+        System.out.println(response.then().extract().body().jsonPath().prettyPrint());
     }
 }

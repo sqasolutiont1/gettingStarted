@@ -49,7 +49,7 @@ public class BasePageObject {
                 .withTimeout(Duration.ofSeconds(30))
                 .pollingEvery(Duration.ofMillis(50))
                 .ignoring(NoSuchElementException.class)
-                .until(driver -> driver.findElement(locator));
+                .until(ExpectedConditions.elementToBeClickable(locator));
     }
 
     public List<WebElement> getClickableElements(By locator) {

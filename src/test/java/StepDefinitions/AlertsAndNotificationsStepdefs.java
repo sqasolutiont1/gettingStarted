@@ -18,10 +18,10 @@ public class AlertsAndNotificationsStepdefs {
         alerts.navigateToAlertPage();
     }
 
-    @After
-    public void closeAll(){
-        alerts.quit();
-    }
+//    @After
+//    public void closeAll(){
+//        alerts.quit();
+//    }
 
     @When("I am on the Alert And notifications Page")
     public void iAmOnTheAlertAndNotificationsPage() {

@@ -8,3 +8,7 @@ Feature: https://github.com/public-apis/public-apis
 
     Scenario: https://jokeapi-v2.p.rapidapi.com/joke/Any
       When I call for the random joke, I get it
+
+
+      Scenario:
+        When I list all catigories
