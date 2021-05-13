@@ -2,6 +2,7 @@ package authenticgoods;
 
 import authenticgoods.Navigation.Navigation;
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.LineIterator;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -13,6 +14,7 @@ import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 
 public class Tables extends CommonPage {
@@ -30,9 +32,14 @@ public class Tables extends CommonPage {
         navigation.pressOnDataTables();
     }
 
-    public void checkIfOnTheCorrectPage() {
+    public void checkIfOnTheCorrectPage() throws IOException {
         By locator = By.cssSelector("h1");
-        Assert.assertEquals(getClickableElement(locator).getText(), header);
+        String headerFromWebSite = getClickableElement(locator).getText();
+        File fileToWrite1 = FileUtils.getFile( System.getProperty("user.dir")+"\\" + "header.txt");
+        Collection<Object> lines = new ArrayList<>();
+        lines.add(headerFromWebSite);
+        FileUtils.writeLines(fileToWrite1, lines);
+        Assert.assertEquals(headerFromWebSite, header);
     }
 
     public void checkHeader() {

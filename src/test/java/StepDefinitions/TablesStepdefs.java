@@ -8,6 +8,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
 
+import java.io.IOException;
 import java.util.List;
 
 public class TablesStepdefs {
@@ -18,7 +19,7 @@ public class TablesStepdefs {
     }
 
     @When("I check if I'm on the tables page")
-    public void iCheckIfIMOnTheTablesPage() {
+    public void iCheckIfIMOnTheTablesPage() throws IOException {
         tables.checkIfOnTheCorrectPage();
     }
 
