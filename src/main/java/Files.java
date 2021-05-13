@@ -3,6 +3,7 @@ import org.apache.commons.io.LineIterator;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -17,16 +18,16 @@ public class Files {
     }
     public static void main(String[] args) throws IOException {
 
-        // file1: "Hello World!"
-        // file2: "Hello World!!!"
+//         file1: "Hello World!"
+//         file2: "Hello World!!!"
 //        File file1 = FileUtils.getFile(MAIN_PATH + "cmpFile1.txt");
 //        File file2 = FileUtils.getFile(MAIN_PATH + "cmpFile2.txt");
 //        System.out.println("Are cmpFile1 and cmpFile2 equal: " +
 //                FileUtils.contentEquals(file1, file2));
 
 
-        // We can copy a whole path somewhere
-        // and check if the operation was successful.
+//         We can copy a whole path somewhere
+//         and check if the operation was successful.
 //        File file1 =  FileUtils.getFile(MAIN_PATH);
 //        File file2 =  FileUtils.getFile(MAIN_PATH + "copiedPath");
 //        FileUtils.copyDirectory(file1, file2);
@@ -56,7 +57,7 @@ public class Files {
 //        // Right now there are these files in the MAIN_PATH.
 //        for (File f : FileUtils.getFile(MAIN_PATH).listFiles()) {
 //            System.out.println("Contents of MAIN_PATH: " + f.getName());
-//        }
+//       }
 //        // Let's delete a directory and see the results.
 //        FileUtils.deleteDirectory(FileUtils.getFile(MAIN_PATH + "copiedFilterPath\\"));
 //        for (File f : FileUtils.getFile(MAIN_PATH).listFiles()) {
@@ -72,6 +73,7 @@ public class Files {
 
 
         // Line Iterator
+//        File file1 = FileUtils.getFile(MAIN_PATH + "cmpFile1.txt");
 //        LineIterator iter = FileUtils.lineIterator(file1);
 //        while (iter.hasNext()) {
 //            System.out.println(iter.next());
@@ -92,7 +94,7 @@ public class Files {
         lines.add("Written with FileUtils!");
         lines.add("For Java Code Geeks.");
 
-        FileUtils.write(fileToWrite1, "Written with FileUtils!");
+        FileUtils.write(fileToWrite1, "Written with FileUtils!", Charset.defaultCharset());
         FileUtils.writeLines(fileToWrite2, lines);
 
         LineIterator iter = FileUtils.lineIterator(fileToWrite1);
