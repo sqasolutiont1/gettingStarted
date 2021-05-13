@@ -13,10 +13,10 @@ public class ForComponentsStepdefs {
      */
     FormComponentsPO formComponents = new FormComponentsPO();
 
-    @After
-    public void closeDriver() {
-        formComponents.closeDriver();
-    }
+//    @After
+//    public void closeDriver() {
+//        formComponents.closeDriver();
+//    }
 
     @Given("Form Components. I navigate to the Components page")
     public void formComponentsINavigateToTheComponentsPage() {

@@ -45,4 +45,13 @@ public class BasicTablesSD {
         testData.readFromFile(TestDataManipulation.testData);
         //basicTables.readValuesFromTheWholeTable());
     }
+
+    @Then("I wait for:{int} seconds")
+    public void iWaitForSeconds(int arg0) {
+        try {
+            Thread.sleep(arg0*1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 }

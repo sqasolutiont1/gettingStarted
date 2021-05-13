@@ -25,4 +25,6 @@ Feature: I'm demonstrating ow I'm working with WebElements
       |Second message |
       |Third message  |
       |Fourth message |
+    Then I wait for:5 seconds
+
 

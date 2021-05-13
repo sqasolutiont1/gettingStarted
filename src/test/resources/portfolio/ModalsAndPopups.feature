@@ -9,5 +9,6 @@ Background: Modals.
   Scenario: Read tooltips
     When Modals. I hover mouse over the button1
     Then Modals. I see the tooltip: "Tooltip on right"
+    Then I wait for:5 seconds
 
 
