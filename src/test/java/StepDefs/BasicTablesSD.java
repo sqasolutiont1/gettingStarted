@@ -6,6 +6,9 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
+import utils.TestDataManipulation;
+
+import java.io.IOException;
 
 public class BasicTablesSD {
     BasicTables basicTables = new BasicTables();
@@ -29,5 +32,26 @@ public class BasicTablesSD {
     public void basicTablesICheckTheWholeTable(DataTable dataTable) {
         System.out.println("This is what we are getting from out Scenario: " + dataTable.asMaps());
         Assert.assertEquals(dataTable.asMaps(), basicTables.readValuesFromTheWholeTable());
+    }
+
+    @And("Basic Tables. I check the whole table. Asserting from the File")
+    public void basicTablesICheckTheWholeTableAssertingFromTheFile() throws IOException {
+        /**
+         * find the way to get test data for the assertion from the file
+         *
+         */
+        TestDataManipulation testData = new TestDataManipulation();
+        testData.createTestData(TestDataManipulation.testData);
+        testData.readFromFile(TestDataManipulation.testData);
+        //basicTables.readValuesFromTheWholeTable());
+    }
+
+    @Then("I wait for:{int} seconds")
+    public void iWaitForSeconds(int arg0) {
+        try {
+            Thread.sleep(arg0*1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }

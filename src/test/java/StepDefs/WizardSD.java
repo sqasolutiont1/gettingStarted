@@ -21,10 +21,10 @@ public class WizardSD {
         formWizard.navigateToWizardPage();
     }
 
-    @After
-    public void closeDriver() {
-        formWizard.closeDriver();
-    }
+//    @After
+//    public void closeDriver() {
+//        formWizard.closeDriver();
+//    }
 
     @Then("Wizard. I fill out Last name: {string}")
     public void iFillOutLastName(String lastName) {

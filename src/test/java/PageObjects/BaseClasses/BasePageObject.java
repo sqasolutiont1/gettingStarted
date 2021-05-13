@@ -3,14 +3,17 @@ package PageObjects.BaseClasses;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.*;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 import java.util.List;
 
 public class BasePageObject {
     public static WebDriver webDriver;
-    public String baseURL = "http://authenticgoods.co/wrapbootstrap/themes/neuboard-v1.4.3/Angular_full_version/index.html#";
+    public static String baseURL = "http://authenticgoods.co/wrapbootstrap/themes/neuboard-v1.4.3/Angular_full_version/index.html#";
 
     public BasePageObject() {
         WebDriverManager.chromedriver().setup();
@@ -46,7 +49,7 @@ public class BasePageObject {
                 .withTimeout(Duration.ofSeconds(30))
                 .pollingEvery(Duration.ofMillis(50))
                 .ignoring(NoSuchElementException.class)
-                .until(driver -> driver.findElement(locator));
+                .until(ExpectedConditions.elementToBeClickable(locator));
     }
 
     public List<WebElement> getClickableElements(By locator) {
@@ -73,7 +76,7 @@ public class BasePageObject {
     }
 
     public ExpectedCondition<Boolean> isElementNotVisible(By locator) {
-       return new WebDriverWait(webDriver, 5).until(webDriver -> ExpectedConditions.invisibilityOf(webDriver.findElement(locator)));
+        return new WebDriverWait(webDriver, 5).until(webDriver -> ExpectedConditions.invisibilityOf(webDriver.findElement(locator)));
     }
 
 

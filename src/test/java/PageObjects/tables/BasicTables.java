@@ -4,7 +4,10 @@ import PageObjects.BaseClasses.BasePageObject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
 public class BasicTables extends BasePageObject {
     public void navigateToBasicTablesPage() {
@@ -102,7 +105,7 @@ public class BasicTables extends BasePageObject {
         return listOfValuesFromAllRows;
     }
 
-    public List<Map<String,String>> readValuesFromTheWholeTable() {
+    public List<Map<String, String>> readValuesFromTheWholeTable() {
         /**
          * This one for Header data
          */
@@ -148,19 +151,19 @@ public class BasicTables extends BasePageObject {
          * We need list of the maps, because this is exactly what we are getting from out table with test data
          * in Cucumber
          */
-        List<Map<String,String>> mapList = new ArrayList<>();
+        List<Map<String, String>> mapList = new ArrayList<>();
         /**
          * Creating a map to hold keys and values from the table
          */
-        LinkedHashMap<String,String> map = new LinkedHashMap<>();
+        LinkedHashMap<String, String> map = new LinkedHashMap<>();
 
-        for(int i = 1; i<listOfCellsInHeader.size();i++){
+        for (int i = 1; i < listOfCellsInHeader.size(); i++) {
             /**
              * Internal loop fills in Map with Key/Value for ONE Row
              */
-            for (int j=0; j<listOfTheCellsInOneRow.size();j++){
-                List<WebElement> cellsInOneRow = getClickableElements(By.xpath("(//table//tbody//tr)["+i+"]//td"));
-                map.put(listOfCellsInHeader.get(j).getText(),cellsInOneRow.get(j).getText());
+            for (int j = 0; j < listOfTheCellsInOneRow.size(); j++) {
+                List<WebElement> cellsInOneRow = getClickableElements(By.xpath("(//table//tbody//tr)[" + i + "]//td"));
+                map.put(listOfCellsInHeader.get(j).getText(), cellsInOneRow.get(j).getText());
             }
             mapList.add(map);
             map = new LinkedHashMap<>();
