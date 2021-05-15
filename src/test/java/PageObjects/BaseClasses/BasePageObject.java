@@ -35,7 +35,7 @@ public class BasePageObject {
             webDriver = new ChromeDriver();
         }
         webDriver.navigate().to(url);
-        waitForPageToBeLoaded();
+        //waitForPageToBeLoaded();
     }
 
     public void sendTextWithClear(By Locator, String text) {
@@ -67,7 +67,7 @@ public class BasePageObject {
         return true;
     }
 
-    public Boolean isElementDisplayed(By locator) {
+    public Boolean waitForElementToBeDisplayed(By locator) {
         return new FluentWait<>(webDriver)
                 .withTimeout(Duration.ofSeconds(30))
                 .pollingEvery(Duration.ofMillis(50))
