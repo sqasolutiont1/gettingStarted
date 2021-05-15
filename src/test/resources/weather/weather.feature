@@ -7,3 +7,4 @@ Feature:
     And Weather. I am clicking on :"10 Day"
     And Weather. I am clicking on :"Weekend"
     Then Weather. I search for: "Austin"
+    Then I read and save the values from the City's Names and Temperature
