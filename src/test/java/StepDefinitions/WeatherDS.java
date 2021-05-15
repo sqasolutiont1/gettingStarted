@@ -2,11 +2,16 @@ package StepDefinitions;
 
 import PageObjects.weather.HomePage;
 import PageObjects.weather.WeatherPage;
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.json.simple.parser.ParseException;
 import org.testng.Assert;
 import utils.FileManager;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public class WeatherDS {
     HomePage homePage = new HomePage();
@@ -35,5 +40,12 @@ public class WeatherDS {
     public void iReadAndSaveTheValuesFromTheCitySNamesAndTemperature() {
         FileManager.SaveDataToJsonFile(weatherPag.getCityName(),weatherPag.getCityTemperature(),
                 weatherPag.getCityName()+"_weather");
+    }
+
+    @Then("Weather. I check if data in json file is exactly what I was expecting to see:")
+    public void weatherICheckIfDataInJsonFileIsExactlyWhatIWasExpectingToSee(DataTable table) throws IOException, ParseException {
+        System.out.println(table.asMap(String.class, String.class));
+        System.out.println(FileManager.readDataFromJSON("Austin, TX Weather_weather"));
+        //Assert.assertEquals(table.asList());
     }
 }
