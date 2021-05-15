@@ -31,7 +31,7 @@ public class WeatherDS {
         homePage.searchForCity(city);
     }
 
-    @Then("I read and save the values from the City's Names and Temperature")
+    @Then("Weather. I read and save the values from the City's Names and Temperature")
     public void iReadAndSaveTheValuesFromTheCitySNamesAndTemperature() {
         FileManager.SaveDataToJsonFile(weatherPag.getCityName(),weatherPag.getCityTemperature(),
                 weatherPag.getCityName()+"_weather");
