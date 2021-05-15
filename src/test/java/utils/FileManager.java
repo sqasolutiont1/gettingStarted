@@ -10,7 +10,8 @@ public class FileManager {
     public static void SaveDataToJsonFile(String key, String value, String filename){
         JSONObject data = new JSONObject();
         data.put(key, value);
-        try (FileWriter file = new FileWriter(filename+".json")) {
+        try (FileWriter file = new FileWriter(
+                System.getProperty("user.dir") + "\\src\\test\\resources\\testData\\"+filename+".json")) {
             file.write(data.toJSONString());
             file.flush();
         } catch (IOException e) {
