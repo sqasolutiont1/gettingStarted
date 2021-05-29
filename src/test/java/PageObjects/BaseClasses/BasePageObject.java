@@ -1,5 +1,6 @@
 package PageObjects.BaseClasses;
 
+import com.paulhammant.ngwebdriver.NgWebDriver;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -108,7 +109,8 @@ public class BasePageObject {
     }
 
     public void waitForPageToBeLoaded() {
-        final String javaScriptToLoadAngular =
+        new NgWebDriver((JavascriptExecutor) webDriver).waitForAngularRequestsToFinish();
+        /*final String javaScriptToLoadAngular =
                 "var injector = window.angular.element('body').injector();" +
                         "var $http = injector.get('$http');" +
                         "return ($http.pendingRequests.length === 0)";
@@ -121,6 +123,6 @@ public class BasePageObject {
         new FluentWait<>(webDriver)
                 .withTimeout(Duration.ofSeconds(30))
                 .pollingEvery(Duration.ofMillis(50))
-                .until(pendingHttpCallsCondition);
+                .until(pendingHttpCallsCondition);*/
     }
 }
